@@ -1,4 +1,5 @@
 import {useState} from "react"
+import {Link} from 'react-router-dom'
 
 function Show(props){
   const id = props.match.params.id
@@ -35,6 +36,9 @@ function Show(props){
         <p>{job.description}</p>
         <p>Notes: {job.notes}</p>
       <div className='buttons'>
+        <Link to={`/jobs/${id}/edit`}>
+          <button id='edit'>EDIT</button>
+        </Link>
         <button id="delete" onClick={removeJobs}> DELETE </button>
       </div>
       </div>
