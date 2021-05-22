@@ -23,8 +23,9 @@ function Show(props){
   }
 
   const removeJobs = () => {
-    props.deletejobs(job._id)
-    props.history.push('/')
+    console.log(job._id)
+    props.deleteJobs(job._id)
+    props.history.push('/jobs')
   }
 
     return (

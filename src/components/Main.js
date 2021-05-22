@@ -8,7 +8,7 @@ import Edit from "../pages/Edit";
 
 function Main(props){
 
-  const URL = "https://proj3-backend.herokuapp.com/jobs";
+  const URL = "https://proj3-backend.herokuapp.com/jobs/";
 
   const [jobs, setJobs] = useState(null);
 
@@ -17,6 +17,13 @@ function Main(props){
     const data = await response.json();
     setJobs(data);
   };
+
+  const deleteJobs = async (id) => {
+    await fetch(URL + id, {
+      method: 'delete'
+    })
+    getJobs()
+  }
 
   useEffect(() => getJobs(), []);
 
@@ -49,6 +56,7 @@ function Main(props){
           path="/jobs/:id"
           render={(rp) => (
             <Show jobs={jobs}
+            deleteJobs={deleteJobs}
               {...rp}
             />
           )}
