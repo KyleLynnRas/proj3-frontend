@@ -1,6 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import Form from "../components/Form";
+import Result from "../components/Result"
 
 function Search(props){
   //api data 
@@ -14,18 +15,22 @@ function Search(props){
   };
 
   const loaded = () => {
-    console.log(job)
+    const jobArr = job.jobs
     //map through API results and create Result component for each
     return(
-        <>
-        <h1>results</h1>
-        <p>location: {job.jobs[0].candidate_required_location}</p>
-        </>
+        <div className="result-list-container">
+          <h1>results</h1>
+            {jobArr.map((ele, index) => {
+              return <Result id={index} title={ele.title} company_name={ele.company_name} 
+              candidate_required_location={ele.candidate_required_location} salary={ele.salary} 
+              url={ele.url}/>
+            })}
+        </div>
       )
   };
 
   const loading = () => {
-    return <h1>Loading...</h1>
+    return <h1>Search for a job to begin</h1>
   };
 
   return(
