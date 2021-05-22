@@ -21,9 +21,9 @@ function Main(props){
   const deleteJobs = async (id) => {
     await fetch(URL + id, {
       method: 'delete'
-    })
-    getJobs()
-  }
+    });
+    getJobs();
+  };
 
   useEffect(() => getJobs(), []);
 
@@ -64,6 +64,6 @@ function Main(props){
       </Switch>
     </main>
   );
-}
+};
   
 export default Main;

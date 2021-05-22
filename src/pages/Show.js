@@ -1,32 +1,32 @@
-import {useState} from "react"
-import {Link} from 'react-router-dom'
+import {useState} from "react";
+import {Link} from 'react-router-dom';
 
 function Show(props){
-  const id = props.match.params.id
-  const jobs = props.jobs
-  const job = jobs.find(p => p._id === id)
+  const id = props.match.params.id;
+  const jobs = props.jobs;
+  const job = jobs.find(p => p._id === id);
 
   // State for form
-  const [editForm, setEditForm] = useState(job)
+  const [editForm, setEditForm] = useState(job);
 
   // handleChange function for form
   const handleChange = (event) => {
-    setEditForm({...editForm, [event.target.name]: event.target.value})
-  }
+    setEditForm({...editForm, [event.target.name]: event.target.value});
+  };
 
   // handleSubmit function for form
   const handleSubmit = (event) => {
-    event.preventDefault()
-    props.updateJobs(editForm)
+    event.preventDefault();
+    props.updateJobs(editForm);
     // Redirect back to index
-    props.history.push('/')
-  }
+    props.history.push('/');
+  };
 
   const removeJobs = () => {
-    console.log(job._id)
-    props.deleteJobs(job._id)
-    props.history.push('/jobs')
-  }
+    console.log(job._id);
+    props.deleteJobs(job._id);
+    props.history.push('/jobs');
+  };
 
     return (
       <div className='job'>
@@ -43,7 +43,7 @@ function Show(props){
         <button id="delete" onClick={removeJobs}> DELETE </button>
       </div>
       </div>
-    )
-  } 
+    );
+  }; 
   
   export default Show;
