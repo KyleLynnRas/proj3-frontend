@@ -36,7 +36,7 @@ function Main(props){
         <Route
           path="/jobs/:id"
           render={(rp) => (
-            <Show
+            <Show jobs={jobs}
               {...rp}
             />
           )}
