@@ -18,16 +18,16 @@ const Form = (props) => {
 
     return (
       <div>
-          <form onSubmit={handleSubmit}>
-              <input 
-                type="text" 
-                name= "searchTerm"
-                onChange={handleChange}
-                value={formData.searchTerm}/>
+        <form onSubmit={handleSubmit}>
+                <select name="searchTerm" value={formData.searchTerm} onChange={handleChange}>
+                    <option value="front%20end">Front End</option>
+                    <option value="back%20end">Back End</option>
+                    <option value="full%20stack">Full Stack</option>
+                </select>
               <input type="submit" value="search"/>
-          </form>
+        </form>
       </div>
-  );
+    );
 };
 
 export default Form;
