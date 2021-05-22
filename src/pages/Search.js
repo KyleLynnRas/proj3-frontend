@@ -19,11 +19,13 @@ function Search(props){
     //map through API results and create Result component for each
     return(
         <div className="result-list-container">
-          <h1>results</h1>
+          <h1>Results</h1>
             {jobArr.map((ele, index) => {
-              return <Result id={index} title={ele.title} company_name={ele.company_name} 
-              candidate_required_location={ele.candidate_required_location} salary={ele.salary} 
-              url={ele.url}/>
+              if (index <= 14) {
+                return <Result id={index} title={ele.title} company_name={ele.company_name} 
+                candidate_required_location={ele.candidate_required_location} salary={ele.salary} 
+                url={ele.url} job_type={ele.job_type}/>
+              }
             })}
         </div>
       )
