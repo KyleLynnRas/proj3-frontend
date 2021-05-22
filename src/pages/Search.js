@@ -1,17 +1,17 @@
 import React from "react";
 import {useState} from "react";
-import Form from "../components/Form"
+import Form from "../components/Form";
 
 function Search(props){
   //api data 
-  const [job, setJob] = useState(null)
+  const [job, setJob] = useState(null);
 
   //Api func to set job state 
   const jobSearch = async (searchTerm) => {
-    const response = await fetch(`https://remotive.io/api/remote-jobs?search=${searchTerm}`)
-    const data = await response.json()
+    const response = await fetch(`https://remotive.io/api/remote-jobs?search=${searchTerm}`);
+    const data = await response.json();
     setJob(data)
-  }
+  };
 
   const loaded = () => {
     console.log(job)
@@ -22,11 +22,11 @@ function Search(props){
         <p>location: {job.jobs[0].candidate_required_location}</p>
         </>
       )
-  }
+  };
 
   const loading = () => {
     return <h1>Loading...</h1>
-  }
+  };
 
   return(
     <div className="search-container">
@@ -35,6 +35,6 @@ function Search(props){
       {job ? loaded() : loading()}
     </div>
     )
-  } 
+  };
   
   export default Search;
