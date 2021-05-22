@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
 import Search from "../pages/Search";
+import Edit from "../pages/Edit";
 
 
 function Main(props){
@@ -30,6 +31,15 @@ function Main(props){
           path="/jobs/search"
           render={(rp) => (
             <Search
+            jobs={jobs}
+              {...rp}
+            />
+          )}
+        />
+        <Route 
+          path="/jobs/:id/edit"
+          render={(rp) => (
+            <Edit
             jobs={jobs}
               {...rp}
             />
