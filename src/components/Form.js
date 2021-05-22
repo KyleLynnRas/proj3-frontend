@@ -25,7 +25,7 @@ const Form = (props) => {
                 name="searchTerm"
                 onChange={handleChange}
                 value={formData.searchTerm}/> */}
-              <input type="text" value="Description"/>
+              {/* <input type="text" value="Description"/> */}
                 <select name="searchTerm" value={formData.searchTerm} onChange={handleChange}>
                     <option value="front%20end">Front End</option>
                     <option value="back%20end">Back End</option>
