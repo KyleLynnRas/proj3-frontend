@@ -24,11 +24,13 @@ function Main(props){
       <Switch>
         <Route exact path="/jobs">
           <Index jobs={jobs}/>
+
         </Route>
         <Route 
           path="/jobs/search"
           render={(rp) => (
             <Search
+            jobs={jobs}
               {...rp}
             />
           )}
@@ -46,4 +48,4 @@ function Main(props){
   );
 }
   
-  export default Main;
+export default Main;
