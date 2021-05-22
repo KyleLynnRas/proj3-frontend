@@ -7,7 +7,7 @@ import Search from "../pages/Search";
 
 function Main(props){
 
-  // const URL "https://proj3-backend.herokuapp.com/jobs";
+  const URL = "https://proj3-backend.herokuapp.com/jobs";
 
   const [jobs, setJobs] = useState(null);
 
@@ -15,10 +15,9 @@ function Main(props){
     const response = await fetch(URL);
     const data = await response.json();
     setJobs(data);
-    console.log(getJobs)
   };
 
-// useEffect(() => getJobs(), []);
+  useEffect(() => getJobs(), []);
 
   return (
     <main>
