@@ -10,6 +10,7 @@ const Result = (props) => {
         <h2>Salary: {props.salary}</h2>
         <h2>Type: {props.job_type}</h2>
         <a href={props.url} target="_blank">Live app on Remotive</a>
+        <button onClick={props.handleChange} id={props.id}>Save</button>
     </div>
   );
 };
