@@ -33,7 +33,7 @@ function Search(props){
 
 
   const loaded = () => {
-    const jobArr = job.jobs
+    const jobArr = job.jobs;
     //map through API results and create Result component for each
     return(
         <div className="result-list-container">
