@@ -29,6 +29,13 @@ function Main(props){
     });
     getJobs();
   };
+    
+  const deleteJobs = async (id) => {
+    await fetch(URL + id, {
+      method: 'delete'
+    });
+    getJobs();
+  };
 
   useEffect(() => getJobs(), []);
 
@@ -60,7 +67,8 @@ function Main(props){
         <Route
           path="/jobs/:id"
           render={(rp) => (
-            <Show
+            <Show jobs={jobs}
+            deleteJobs={deleteJobs}
               {...rp}
             />
           )}
