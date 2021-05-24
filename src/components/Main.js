@@ -8,7 +8,7 @@ import Edit from "../pages/Edit";
 
 function Main(props){
 
-  const URL = "https://proj3-backend.herokuapp.com/jobs";
+  const URL = "https://proj3-backend.herokuapp.com/jobs/";
 
   const [jobs, setJobs] = useState(null);
 
@@ -18,6 +18,18 @@ function Main(props){
     setJobs(data);
   };
 
+  //create new job from api results
+  const createJob = async (newJob) => {
+    await fetch(URL, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newJob)
+    });
+    getJobs();
+  };
+
   useEffect(() => getJobs(), []);
 
   return (
@@ -25,13 +37,13 @@ function Main(props){
       <Switch>
         <Route exact path="/jobs">
           <Index jobs={jobs}/>
-
         </Route>
         <Route 
           path="/jobs/search"
           render={(rp) => (
             <Search
             jobs={jobs}
+            createJob={createJob}
               {...rp}
             />
           )}
@@ -56,6 +68,6 @@ function Main(props){
       </Switch>
     </main>
   );
-}
+};
   
 export default Main;
