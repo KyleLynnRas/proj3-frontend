@@ -27,7 +27,7 @@ function Main(props){
       },
       body: JSON.stringify(newJob)
     });
-    getJobs()
+    getJobs();
   };
 
   useEffect(() => getJobs(), []);
