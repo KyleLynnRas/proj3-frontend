@@ -3,11 +3,12 @@ import { Route, Switch } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
 import Search from "../pages/Search";
+import Edit from "../pages/Edit";
 
 
 function Main(props){
 
-  const URL = "https://proj3-backend.herokuapp.com/jobs";
+  const URL = "https://proj3-backend.herokuapp.com/jobs/";
 
   const [jobs, setJobs] = useState(null);
 
@@ -15,6 +16,18 @@ function Main(props){
     const response = await fetch(URL);
     const data = await response.json();
     setJobs(data);
+  };
+
+  //create new job from api results
+  const createJob = async (newJob) => {
+    await fetch(URL, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newJob)
+    });
+    getJobs();
   };
 
   useEffect(() => getJobs(), []);
@@ -29,6 +42,17 @@ function Main(props){
           path="/jobs/search"
           render={(rp) => (
             <Search
+            jobs={jobs}
+            createJob={createJob}
+              {...rp}
+            />
+          )}
+        />
+        <Route 
+          path="/jobs/:id/edit"
+          render={(rp) => (
+            <Edit
+            jobs={jobs}
               {...rp}
             />
           )}
@@ -44,6 +68,6 @@ function Main(props){
       </Switch>
     </main>
   );
-}
+};
   
-  export default Main;
+export default Main;
