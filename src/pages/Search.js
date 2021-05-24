@@ -11,7 +11,7 @@ function Search(props){
   const jobSearch = async (searchTerm) => {
     const response = await fetch(`https://remotive.io/api/remote-jobs?search=${searchTerm}`);
     const data = await response.json();
-    setJob(data)
+    setJob(data);
   };
 
   //add job to db
@@ -27,8 +27,8 @@ function Search(props){
       salary: savedJob.salary,
       url: savedJob.url
     };
-    props.createJob(newJob)
-    props.history.push("/jobs")
+    props.createJob(newJob);
+    props.history.push("/jobs");
   };
 
 
