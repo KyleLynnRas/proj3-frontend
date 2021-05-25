@@ -13,7 +13,6 @@ function Search(props){
     const response = await fetch(`https://remotive.io/api/remote-jobs?${parameter}=${searchTerm}`);
     const data = await response.json();
     setJob(data);
-    console.log(searchTerm)
   };
 
   //add job to db
@@ -36,6 +35,9 @@ function Search(props){
 
   const loaded = () => {
     const jobArr = job.jobs;
+    if (jobArr.length === 0) {
+      return <h1>Sorry no results this time, please try another company</h1>
+    } else {
     //map through API results and create Result component for each
     return(
         <div className="result-list-container">
@@ -47,8 +49,10 @@ function Search(props){
                 url={ele.url} job_type={ele.job_type} handleChange={handleChange}/>
               };
             })}
+            <p>Results from <a href="https://remotive.io/" target='_blank' rel='noreferrer'>Remotive's API</a></p>
         </div>
       );
+    };
   };
 
   const loading = () => {

@@ -19,6 +19,7 @@ const CompanyForm = (props) => {
 
     return (
       <div>
+        <h3>Company</h3>
         <form onSubmit={handleSubmit2}>
               <input id="Company"
                 type="text" 
