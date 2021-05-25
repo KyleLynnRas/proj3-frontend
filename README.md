@@ -7,11 +7,10 @@
 ## Project Summary
  
  
-<img src="" width="250"> 
+<img src="https://i.imgur.com/SULQoZm.png" width="250"> 
  
-<img src="" width="250"> 
+<img src="https://i.imgur.com/glleQcN.png" width="250"> 
  
-<img src="" width="250"> 
  
  
 ## Technology Used
@@ -21,10 +20,22 @@
 - Express
 - React
 - Github
- 
+- Mongoose
+- MongoDB
  
 ## Models
- 
+***JobSchema***
+- Title: String
+- Company_name: String
+- Job_type: String
+- Candidate_required_location: String
+- Salary: String
+- Url: String
+- Notes
+- Applied
+- Interviewed
+- Cover_letter
+- Resume 
  
  
 ## Route Map

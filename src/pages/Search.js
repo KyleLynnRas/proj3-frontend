@@ -1,6 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import Form from "../components/Form";
+import CompanyForm from "../components/CompanyForm";
 import Result from "../components/Result";
 
 function Search(props){
@@ -8,8 +9,8 @@ function Search(props){
   const [job, setJob] = useState(null);
 
   //Api func to set job state 
-  const jobSearch = async (searchTerm) => {
-    const response = await fetch(`https://remotive.io/api/remote-jobs?search=${searchTerm}`);
+  const jobSearch = async (searchTerm, parameter) => {
+    const response = await fetch(`https://remotive.io/api/remote-jobs?${parameter}=${searchTerm}`);
     const data = await response.json();
     setJob(data);
   };
@@ -34,6 +35,9 @@ function Search(props){
 
   const loaded = () => {
     const jobArr = job.jobs;
+    if (jobArr.length === 0) {
+      return <h1>Sorry no results this time, please try another company</h1>
+    } else {
     //map through API results and create Result component for each
     return(
         <div className="result-list-container">
@@ -44,9 +48,11 @@ function Search(props){
                 candidate_required_location={ele.candidate_required_location} salary={ele.salary} 
                 url={ele.url} job_type={ele.job_type} handleChange={handleChange}/>
               };
-            })};
+            })}
+            <p>Results from <a href="https://remotive.io/" target='_blank' rel='noreferrer'>Remotive's API</a></p>
         </div>
       );
+    };
   };
 
   const loading = () => {
@@ -57,6 +63,7 @@ function Search(props){
     <div className="search-container">
       <h1>Search for jobs</h1>
       <Form jobSearch={jobSearch} />
+      <CompanyForm jobSearch={jobSearch}/>
       {job ? loaded() : loading()}
     </div>
     );
