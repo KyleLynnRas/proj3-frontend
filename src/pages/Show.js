@@ -8,20 +8,21 @@ function Show(props){
  
 
   // State for form
-  const [editForm, setEditForm] = useState(job);
+  // const [editForm, setEditForm] = useState(job);
 
-  // handleChange function for form
-  const handleChange = (event) => {
-    setEditForm({...editForm, [event.target.name]: event.target.value});
-  };
+  // // handleChange function for form
+  // console.log()
+  // const handleChange = (event) => {
+  //   setEditForm({...editForm, [event.target.name]: event.target.value});
+  // };
 
-  // handleSubmit function for form
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    props.updateJobs(editForm);
-    // Redirect back to index
-    props.history.push('/');
-  };
+  // // handleSubmit function for form
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   props.updateJobs(editForm);
+  //   // Redirect back to index
+  //   props.history.push('/');
+  // };
 
   const removeJobs = () => {
     console.log(job._id);

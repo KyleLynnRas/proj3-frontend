@@ -37,6 +37,19 @@ function Main(props){
     getJobs();
   };
 
+  const updateJobs = async (job, id) => {
+    // Make update request to update jobs
+    await fetch(URL + id, {
+      method: 'put',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(job)
+    })
+    // Update jobs
+    getJobs()
+  }
+
   useEffect(() => getJobs(), []);
 
   return (
@@ -60,6 +73,7 @@ function Main(props){
           render={(rp) => (
             <Edit
             jobs={jobs}
+            updateJobs={updateJobs}
               {...rp}
             />
           )}
