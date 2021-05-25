@@ -18,6 +18,18 @@ function Main(props){
     setJobs(data);
   };
 
+  //create new job from api results
+  const createJob = async (newJob) => {
+    await fetch(URL, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newJob)
+    });
+    getJobs();
+  };
+    
   const deleteJobs = async (id) => {
     await fetch(URL + id, {
       method: 'delete'
@@ -32,13 +44,13 @@ function Main(props){
       <Switch>
         <Route exact path="/jobs">
           <Index jobs={jobs}/>
-
         </Route>
         <Route 
           path="/jobs/search"
           render={(rp) => (
             <Search
             jobs={jobs}
+            createJob={createJob}
               {...rp}
             />
           )}
