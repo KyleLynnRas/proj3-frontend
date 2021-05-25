@@ -32,8 +32,9 @@ function Show(props){
     return (
       <div className='job'>
         <h1>{job.title} - {job.job_type}</h1>
-        <h2>{job.company_name}</h2>
-        <h2>{job.candidate_required_location} - {job.salary}</h2>
+        <h2>Company: {job.company_name}</h2>
+        <h2>Location: {job.candidate_required_location}</h2>
+        <h2>Salary: {job.salary}</h2>
         <p>Apply at <a href={job.url} target='_blank' rel='noreferrer'>{job.url}</a>!</p>
         <p>Notes: {job.notes}</p>
         <div className='checkBoxes'>
