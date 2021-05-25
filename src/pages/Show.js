@@ -5,6 +5,7 @@ function Show(props){
   const id = props.match.params.id;
   const jobs = props.jobs;
   const job = jobs.find(p => p._id === id);
+ 
 
   // State for form
   const [editForm, setEditForm] = useState(job);
@@ -33,9 +34,14 @@ function Show(props){
         <h1>{job.title} - {job.job_type}</h1>
         <h2>{job.company_name}</h2>
         <h2>{job.candidate_required_location} - {job.salary}</h2>
-        <p>Apply at <a href={job.url}>{job.url}</a>!</p>
-        <p>{job.description}</p>
+        <p>Apply at <a href={job.url} target='_blank' rel='noreferrer'>{job.url}</a>!</p>
         <p>Notes: {job.notes}</p>
+        <div className='checkBoxes'>
+          <p>I have <b>{job.applied === true ? '' : 'not'}</b> applied to this job.</p>
+          <p>I have <b>{job.interviewed === true ? '' : 'not'}</b> interviewed at this job.</p>
+          <p>I have <b>{job.cover_letter === true ? '' : 'not'}</b> submitted my cover letter.</p>
+          <p>I have <b>{job.resume === true ? '' : 'not'}</b> submitted my resume.</p>
+        </div>
       <div className='buttons'>
         <Link to={`/jobs/${id}/edit`}>
           <button id='edit'>EDIT</button>
