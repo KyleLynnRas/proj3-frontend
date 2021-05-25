@@ -5,6 +5,7 @@ const CompanyForm = (props) => {
 
     const [formData, setFormData] = React.useState({
         searchTerm: "",
+        parameter: "company_name"
     });
 
     const handleChange2 = (event) => {
@@ -13,18 +14,18 @@ const CompanyForm = (props) => {
 
     const handleSubmit2 = (event) => {
         event.preventDefault();
-        props.jobSearch(formData.searchTerm)
+        props.jobSearch(formData.searchTerm, formData.parameter)
     };
 
     return (
       <div>
         <form onSubmit={handleSubmit2}>
-              <input 
+              <input id="Company"
                 type="text" 
                 name="searchTerm"
                 onChange={handleChange2}
                 value={formData.searchTerm}/>
-                <input type="text" value="Company"/>
+
               <input type="submit" value="search"/>
         </form>
       </div>
