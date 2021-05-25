@@ -17,16 +17,17 @@ function Edit(props) {
 
   // handlesubmit for form
 const handleSubmit = event => {
+  console.log(editForm);
     event.preventDefault();
     props.updateJobs(editForm, job._id);
   // redirect jobs to index
-    props.history.push("/jobs");
+    props.history.push(`/jobs/${id}`);
 }
 
     const removeJobs = () => {
       console.log(job._id);
       props.deleteJobs(job._id);
-      props.history.push('/jobs');
+      props.history.push(`/jobs`);
     };
 
 
