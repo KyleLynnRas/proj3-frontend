@@ -19,6 +19,7 @@ const Form = (props) => {
 
     return (
       <div>
+        <h3>Specialty</h3>
         <form onSubmit={handleSubmit}>
                 <select name="searchTerm" value={formData.searchTerm} onChange={handleChange}>
                     <option id="Form" value="front%20end">Front End</option>
