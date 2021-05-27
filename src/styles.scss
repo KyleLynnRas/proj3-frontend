@@ -1,0 +1,213 @@
+// --------------------------
+// Variables
+// --------------------------
+
+/*--fonts--*/
+$postIt: 'Gloria Hallelujah', cursive;
+$cardText: 'Shadows Into Light', cursive;
+
+@mixin flex-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+@mixin backgroundImage {
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+// --------------------------
+// Body
+// --------------------------
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+// --------------------------
+// Index
+// --------------------------
+.index-container {
+    height: 100%;
+    background-image: url("https://i.imgur.com/VvJn5B5.jpg");
+    display: flex;
+    flex-direction: column;
+    @include backgroundImage;
+}
+
+/*--INDEX LOADING--*/
+.index-loading {
+    height: 100vh;
+
+    h1 {
+        margin-top: 40px;
+        background-color: rgba(128, 128, 128, 0.767);
+        font-size: 40px;
+        font-weight: bold;
+        color: #fff;
+        padding: 20px;
+        font-family: $postIt;
+    }
+}
+
+/*--INDEX--*/
+.index-title-container {
+    margin-top: 40px;
+    background-color: rgba(128, 128, 128, 0.767);
+    width: 100vw;
+    padding: 30px;
+
+    h1 {
+        font-family: $postIt;
+        font-size: 35px;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+.index-card-title {
+    margin-top: 25px;
+    font-family: $postIt;
+    font-size: 23px;
+    font-weight: bold;
+    color: rgb(60, 60, 60);
+}
+
+.section {
+    @include flex-column;
+}
+
+.job-container {
+    background-color: transparent;
+    width: 80vw;
+    margin: 10px;
+    @include backgroundImage;
+    text-align: center;
+    font-size: 16px;
+    font-family: $postIt;
+}
+
+.job-container:nth-child(odd) {
+    background-image: url("https://i.imgur.com/YAhCS5S.png");
+}
+
+.job-container:nth-child(even) {
+    background-image: url("https://i.imgur.com/5VChaBJ.png");
+}
+
+.index-card-content {
+    margin-bottom: 20px;
+    color: rgb(60, 59, 59);
+}
+
+// --------------------------
+// Media Query
+// --------------------------
+@media screen and (min-width: 500px) {
+.job-container {
+    width: 60vw;
+}
+}
+
+@media screen and (min-width: 768px) {
+.index-container {
+    height: 100%;
+    background-image: url("https://i.imgur.com/VvJn5B5.jpg");
+    background-image: linear-gradient(#e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/VvJn5B5.jpg");
+    background-image: -webkit-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/VvJn5B5.jpg");
+    background-image: -moz-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/VvJn5B5.jpg");
+}
+
+.index-title-container {
+    margin-top: 60px;
+
+    h1 {
+        font-size: 45px;
+    }
+}
+
+.section {
+    align-self: flex-start;
+    width: 100vw;
+    @include flex-row;
+    flex-wrap: wrap;
+}
+    
+.job-container {
+    width: 30vw;
+    margin: 20px;
+}
+
+}
+
+@media screen and (min-width: 950px) {
+.index-title-container {
+    margin-top: 50px;
+    padding: 35px;
+    
+    h1 {
+        font-size: 50px;
+        }
+}
+
+.section {
+    width: 80vw;
+}
+
+.index-card-title {
+    font-size: 28px;
+}
+
+.job-container {
+    width: 30vw;
+    font-size: 21px;
+}
+
+}
+
+@media screen and (min-width: 1200px) {
+.index-container {
+    height: 100%;
+    background-image: url("https://i.imgur.com/TVxBIPZ.jpg");
+    background-image: linear-gradient(#e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/TVxBIPZ.jpg");
+    background-image: -webkit-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/TVxBIPZ.jpg");
+    background-image: -moz-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/TVxBIPZ.jpg");
+}
+
+.index-title-container {
+    h1 {
+        font-size: 60px;
+    }
+}
+
+.index-card-title {
+    font-size: 24px;
+}
+
+.section {
+    width: 55vw;
+}
+
+.job-container {
+    height: 45%;
+    width: 35%;
+    font-size: 18px;
+}
+
+.index-card-content {
+    margin-bottom: 20px;
+}
+
+}
