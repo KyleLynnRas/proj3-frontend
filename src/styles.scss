@@ -90,7 +90,7 @@ body {
 .index-card-title {
     margin-top: 25px;
     font-family: $postIt;
-    font-size: 23px;
+    font-size: 18px;
     font-weight: bold;
     color: rgb(60, 60, 60);
 }
@@ -101,7 +101,7 @@ body {
 
 .job-container {
     background-color: transparent;
-    width: 80vw;
+    width: 90vw;
     margin: 10px;
     @include backgroundImage;
     text-align: center;
@@ -118,7 +118,7 @@ body {
 }
 
 .index-card-content {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: rgb(60, 59, 59);
 }
 
@@ -306,7 +306,7 @@ span {
 
     h1 {
         font-size: 45px;
-        padding: 10px;
+        padding: 20px;
     }
 }
 
@@ -320,6 +320,7 @@ span {
 .job-container, .result-container {
     width: 40vw;
     margin: 20px;
+    padding: 25px;
 }
 
 /*--SEARCH--*/
@@ -385,7 +386,7 @@ span {
 @media screen and (min-width: 950px) {
 .title-container {
     margin-top: 50px;
-    padding: 35px;
+    padding: 45px;
     
     h1 {
         font-size: 50px;
@@ -393,11 +394,12 @@ span {
 }
 
 .index-card-title, .search-res-title {
-    font-size: 28px;
+    font-size: 26px;
 }
 
 .job-container {
-    width: 30vw;
+    padding: 25px;
+    width: 35vw;
     font-size: 21px;
 }
 
@@ -490,6 +492,7 @@ span {
     background-image: linear-gradient(#e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/pve3Zi7.jpg");
     background-image: -webkit-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/pve3Zi7.jpg");
     background-image: -moz-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/pve3Zi7.jpg");
+    @include flex-column;
 }
 
 .title-container {
@@ -502,17 +505,21 @@ span {
     font-size: 28px;
 }
 
-.section .result-list-container {
-    width: 40%;
-    justify-content: flex-start;
+.section {
+    width: 70%;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.index-loaded {
+    align-self: center;
 }
 
 .job-container, .result-container {
-    justify-self: flex-start;
-    height: 45%;
-    width: 33%;
+    width: 35%;
     font-size: 25px;
+    padding: 30px;
 }
 
 .index-card-content, .result-card-content {
