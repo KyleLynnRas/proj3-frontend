@@ -4,7 +4,13 @@
 
 /*--fonts--*/
 $postIt: 'Gloria Hallelujah', cursive;
-$cardText: 'Shadows Into Light', cursive;
+$main: 'Raleway', sans-serif;
+
+/*--imgs--*/
+$bluePost: url("https://i.imgur.com/5VChaBJ.png");
+$greenPost: url("https://i.imgur.com/YAhCS5S.png");
+$brickSmall: url("https://i.imgur.com/WljWs1A.jpg");
+$brick500: url("https://i.imgur.com/a4LhMkW.jpg");
 
 @mixin flex-column {
     display: flex;
@@ -23,7 +29,6 @@ $cardText: 'Shadows Into Light', cursive;
 @mixin backgroundImage {
     background-position: center;
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 }
 
@@ -33,6 +38,10 @@ $cardText: 'Shadows Into Light', cursive;
 * {
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: $main;
     text-align: center;
 }
 
@@ -48,7 +57,7 @@ $cardText: 'Shadows Into Light', cursive;
 }
 
 /*--INDEX LOADING--*/
-.index-loading {
+.loading {
     height: 100vh;
 
     h1 {
@@ -63,7 +72,7 @@ $cardText: 'Shadows Into Light', cursive;
 }
 
 /*--INDEX--*/
-.index-title-container {
+.title-container {
     margin-top: 40px;
     background-color: rgba(128, 128, 128, 0.767);
     width: 100vw;
@@ -77,6 +86,7 @@ $cardText: 'Shadows Into Light', cursive;
     }
 }
 
+/*--job card--*/
 .index-card-title {
     margin-top: 25px;
     font-family: $postIt;
@@ -100,11 +110,11 @@ $cardText: 'Shadows Into Light', cursive;
 }
 
 .job-container:nth-child(odd) {
-    background-image: url("https://i.imgur.com/YAhCS5S.png");
+    background-image: $bluePost;
 }
 
 .job-container:nth-child(even) {
-    background-image: url("https://i.imgur.com/5VChaBJ.png");
+    background-image: $greenPost;
 }
 
 .index-card-content {
@@ -113,10 +123,175 @@ $cardText: 'Shadows Into Light', cursive;
 }
 
 // --------------------------
+// Search 
+// --------------------------
+.search-container {
+    background-image: $brickSmall;
+    @include backgroundImage;
+    @include flex-column;
+}
+
+.search-title-container {
+    margin-top: 40px;
+    background-color: rgba(128, 128, 128, 0.767);
+    width: 100%;
+    padding: 30px;
+    @include flex-row;
+
+    h1 {
+        font-family: $postIt;
+        font-size: 35px;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+.search-loaded {
+    @include flex-column;
+}
+
+.loaded-title {
+    margin-top: 40px;
+    background-color: rgba(128, 128, 128, 0.767);
+    width: 50vw;
+    padding: 30px;
+    @include flex-row;
+    margin-bottom: 40px;
+
+    h1 {
+        color: #fff;
+        font-size: 30px;
+        font-weight: bold
+    }
+}
+
+/*--Forms--*/
+.search-box, .search-box-2 {
+    width: 55%;
+    height: 350px;
+    background-color: transparent;
+    padding: 20px;
+    background-image: url("https://i.imgur.com/BT1iaWs.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box-2 {
+    background-image: url("https://i.imgur.com/ZJQzi2H.png");
+}
+
+/*--specialty form--*/
+.search-form-label {
+    color: rgb(60, 60, 60);
+    font-size: 18px;
+}
+
+.spec-btn {
+    margin-left: 10px;
+}
+
+/*--company form--*/
+.co-form {
+    color: rgb(60, 60, 60);
+}
+
+.co-input {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.co-control, .spec-control {    
+    @include flex-row;
+}
+
+
+/*--results--*/
+.result-list-container{
+    @include flex-column;
+}
+
+.result-container {
+    background-color: transparent;
+    width: 80vw;
+    margin: 10px;
+    @include backgroundImage;
+    text-align: center;
+    font-size: 16px;
+    font-family: $postIt;
+}
+
+.result-container:nth-child(odd) {
+    background-image: $bluePost;
+}
+
+.result-container:nth-child(even) {
+    background-image: $greenPost;
+}
+
+.result-card-content {
+    margin-bottom: 20px;
+    color: rgb(60, 59, 59);
+
+    h2 {
+        margin: 6px;
+    }
+}
+
+.search-res-title {
+    margin-top: 10px;
+    margin-bottom: 13px;
+    font-family: $postIt;
+    font-size: 23px;
+    font-weight: bold;
+    color: rgb(60, 60, 60);
+}
+
+.result-card-btn-box {
+    margin-top: 15px;
+    @include flex-row;
+}
+
+.result-link {
+    margin-right: 10px;
+    font-size: 20px;
+    color: rgb(60, 60, 60);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.save-btn {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+}
+
+span {
+    font-size: 20px;
+}
+
+.remotive-blurb {
+    margin-top: 40px;
+    background-color: rgba(128, 128, 128, 0.767);
+    width: 50vw;
+    padding: 30px;
+    @include flex-row;
+    margin-bottom: 40px;
+
+    p, a {
+        color: #fff;
+        font-size: 23px;
+        font-weight: bold
+    }
+}
+
+// --------------------------
 // Media Query
 // --------------------------
 @media screen and (min-width: 500px) {
-.job-container {
+.job-container, .result-container {
     width: 60vw;
 }
 }
@@ -130,30 +305,92 @@ $cardText: 'Shadows Into Light', cursive;
     background-image: -moz-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/VvJn5B5.jpg");
 }
 
-.index-title-container {
-    margin-top: 60px;
+.title-container {
 
     h1 {
         font-size: 45px;
+        padding: 10px;
     }
 }
 
-.section {
+.section, .result-list-container {
     align-self: flex-start;
     width: 100vw;
     @include flex-row;
     flex-wrap: wrap;
 }
-    
-.job-container {
-    width: 30vw;
+
+.job-container, .result-container {
+    width: 40vw;
     margin: 20px;
+}
+
+/*--SEARCH--*/
+.search-container {
+    background-image: $brickSmall;
+    @include backgroundImage;
+    @include flex-column;
+}
+
+.search-title-container {
+    padding: 0;
+    h1 {
+        font-size: 45px;
+        padding: 10px;
+    }
+}
+
+.search-box, .search-box-2 {
+    width: 50%;
+    height: 350px;
+    background-color: transparent;
+    padding: 20px;
+    background-image: url("https://i.imgur.com/BT1iaWs.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include flex-column;
+}
+
+.search-box-2 {
+    background-image: url("https://i.imgur.com/ZJQzi2H.png");
+}
+
+/*--specialty form--*/
+.search-form-label {
+    color: #000;
+    font-size: 18px;
+}
+
+.spec-form-container {
+    position: relative;
+    bottom: 15px;
+}
+
+.spec-btn {
+    margin-left: 10px;
+}
+
+/*--company form--*/
+.co-form {
+    color: #000;
+    position: relative;
+    bottom: 10px;
+}
+
+.co-input {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.co-control, .spec-control {    
+    @include flex-row;
 }
 
 }
 
 @media screen and (min-width: 950px) {
-.index-title-container {
+.title-container {
     margin-top: 50px;
     padding: 35px;
     
@@ -162,11 +399,7 @@ $cardText: 'Shadows Into Light', cursive;
         }
 }
 
-.section {
-    width: 80vw;
-}
-
-.index-card-title {
+.index-card-title, .search-res-title {
     font-size: 28px;
 }
 
@@ -175,39 +408,175 @@ $cardText: 'Shadows Into Light', cursive;
     font-size: 21px;
 }
 
+/*--Search--*/
+.search-title-container {
+    margin-top: 50px;
+    padding: 35px;
+    
+    h1 {
+        font-size: 55px;
+        }
+}
+
+.loaded-title {
+    margin-top: 50px;
+
+    h1 {
+        font-size: 40px;
+    }
+}
+
+.search-box, .search-box-2 {
+    width: 49%;
+    padding: 80px;
+}
+
+.search-form-label {
+    color: #000;
+    font-size: 25px;
+}
+
+.spec-btn {
+    margin-left: 10px;
+}
+
+.co-input {
+    width: 80%;
+    margin-right: 10px;
+}
+
+.co-control, .spec-control {    
+    @include flex-row;
+}
+
+/*--results--*/
+.result-container {
+    font-size: 22px;
+}
+
+.result-card-content {
+
+    h2 {
+        margin: 10px;
+    }
+}
+
+.search-res-title {
+    font-size: 26px;
+}
+
+.result-card-btn-box {
+    margin-top: 18px;
+}
+
+.result-link {
+    font-size: 25px;
+}
+
+span {
+    font-size: 25px;
+}
+
+.remotive-blurb {
+    margin-top: 60px;
+    width: 60vw;
+    padding: 40px;
+    margin-bottom: 60px;
+
+    p, a {
+        font-size: 29px;
+    }
+}
+
 }
 
 @media screen and (min-width: 1200px) {
 .index-container {
     height: 100%;
-    background-image: url("https://i.imgur.com/TVxBIPZ.jpg");
-    background-image: linear-gradient(#e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/TVxBIPZ.jpg");
-    background-image: -webkit-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/TVxBIPZ.jpg");
-    background-image: -moz-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/TVxBIPZ.jpg");
+    background-image: url("https://i.imgur.com/pve3Zi7.jpg");
+    background-image: linear-gradient(#e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/pve3Zi7.jpg");
+    background-image: -webkit-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/pve3Zi7.jpg");
+    background-image: -moz-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/pve3Zi7.jpg");
 }
 
-.index-title-container {
+.title-container {
     h1 {
         font-size: 60px;
     }
 }
 
-.index-card-title {
-    font-size: 24px;
+.index-card-title, .search-res-title {
+    font-size: 28px;
 }
 
-.section {
-    width: 55vw;
+.section .result-list-container {
+    width: 40%;
+    justify-content: flex-start;
+    display: flex;
 }
 
-.job-container {
+.job-container, .result-container {
+    justify-self: flex-start;
     height: 45%;
-    width: 35%;
-    font-size: 18px;
+    width: 33%;
+    font-size: 25px;
 }
 
-.index-card-content {
+.index-card-content, .result-card-content {
     margin-bottom: 20px;
+}
+
+/*--Search--*/
+.search-container {
+    background-image: $brick500;
+    background-image: linear-gradient(#e4e4e436, rgba(75, 75, 75, 0.137)), $brick500;
+    background-image: -webkit-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), $brick500;
+    background-image: -moz-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), $brick500;
+}
+
+.search-title-container {
+    margin-top: 50px;
+    padding: 35px;
+    
+    h1 {
+        font-size: 60px;
+        }
+}
+
+.search-box, .search-box-2 {
+    width: 49%;
+    padding: 85px;
+}
+
+.search-form-label {
+    margin-bottom: 20px;
+    color: #000;
+    font-size: 28px;
+}
+
+.spec-btn {
+    margin-left: 10px;
+}
+
+/*--results--*/
+.result-list-container {
+    width: 70%;
+}
+
+.result-container {
+    font-size: 22px;
+    margin: 20px;
+}
+
+.remotive-blurb {
+    margin-top: 60px;
+    width: 60vw;
+    padding: 40px;
+    margin-bottom: 60px;
+
+    p, a {
+        font-size: 29px;
+    }
 }
 
 }

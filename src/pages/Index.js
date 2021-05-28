@@ -10,7 +10,7 @@ function Index(props){
  
   const loading = () => {
     return(
-      <div className="index-loading">
+      <div className="loading">
         <h1>Loading...</h1>
       </div>
     );
@@ -18,7 +18,7 @@ function Index(props){
   
   return(
     <div className="index-container">
-      <section className="index-title-container">
+      <section className="title-container">
         <h1>npm Start Career</h1>
       </section>
       <section className="section">
