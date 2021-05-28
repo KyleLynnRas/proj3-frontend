@@ -4,11 +4,30 @@ import Index from "../pages/Index";
 import Show from "../pages/Show";
 import Search from "../pages/Search";
 import Edit from "../pages/Edit";
+import Login from "./Login";
+import Signup from "./Signup";
+
 
 
 function Main(props){
 
   const URL = "https://proj3-backend.herokuapp.com/jobs/";
+
+  const createUser = async (newUser) => {
+    await fetch(URL + "signup", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser)
+    });
+  };
+
+  const getUsers = async () => {
+    const response = await fetch(URL);
+    const data = await response.json();
+  }
+
 
   const [jobs, setJobs] = useState(null);
 
@@ -85,6 +104,16 @@ function Main(props){
             deleteJobs={deleteJobs}
               {...rp}
             />
+          )}
+        />
+        <Route path="/jobs/signup" 
+          render={(rp) => ( 
+            <Signup {...rp} />
+          )}
+        />
+        <Route path="/jobs/login" 
+          render={(rp) => (
+            <Login {...rp} />
           )}
         />
       </Switch>

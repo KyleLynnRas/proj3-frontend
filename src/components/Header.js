@@ -9,6 +9,9 @@ function Header(props){
         <Link to="/jobs/search">
           <div>Search Jobs</div>
         </Link>
+        <Link to= "/jobs/auth">
+          <div>Login/Signup</div>
+        </Link>
       </nav>
     );
 };
