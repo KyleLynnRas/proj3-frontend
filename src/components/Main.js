@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
+import { Redirect } from "react-router"
 import Index from "../pages/Index";
 import Show from "../pages/Show";
 import Search from "../pages/Search";
@@ -11,19 +12,28 @@ import Signup from "./Signup";
 
 function Main(props){
 
+  
   // const URL = "https://proj3-backend.herokuapp.com/jobs/";
   const URL = "http://localhost:8080/jobs/"
-
-  const getUsers = async () => {
-    const response = await fetch(URL);
-    const data = await response.json();
+  
+  const [token, setToken] = useState(null) 
+  
+  const getToken = (t) => {
+   setToken(t)
   }
 
+  const logOut = () => {
+    setToken('')
+  }
 
   const [jobs, setJobs] = useState(null);
 
   const getJobs = async () => {
-    const response = await fetch(URL);
+    const response = await fetch(URL, {
+      headers: {
+        'x-access-token': token
+      }
+    });
     const data = await response.json();
     setJobs(data);
   };
@@ -34,6 +44,7 @@ function Main(props){
       method: "post",
       headers: {
         "Content-Type": "application/json",
+        "x-access-token": token
       },
       body: JSON.stringify(newJob)
     });
@@ -42,7 +53,10 @@ function Main(props){
     
   const deleteJobs = async (id) => {
     await fetch(URL + id, {
-      method: 'delete'
+      method: 'delete',
+      headers: {
+       'x-access-token': token
+      }
     });
     getJobs();
   };
@@ -52,7 +66,8 @@ function Main(props){
     await fetch(URL + id, {
       method: 'put',
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "x-access-token": token
       },
       body: JSON.stringify(job)
     })
@@ -60,19 +75,24 @@ function Main(props){
     getJobs()
   }
 
-  useEffect(() => getJobs(), []);
+  useEffect(() => {
+    if(token){
+      getJobs();
+    } else {
+      Redirect('/auth/login')
+    }
+  }, [token]);
 
   return (
     <main>
       <Switch>
-        <Route exact path="/jobs">
-          <Index jobs={jobs}/>
-        </Route>
+        <Route exact path="/jobs" render={(rp) => <Index jobs={jobs} token={token} {...rp}/>}/>
         <Route 
           path="/jobs/search"
           render={(rp) => (
             <Search
             jobs={jobs}
+            token={token}
             createJob={createJob}
               {...rp}
             />
@@ -104,7 +124,7 @@ function Main(props){
         />
         <Route path="/auth/login" 
           render={(rp) => (
-            <Login {...rp} />
+            <Login {...rp} getToken={getToken}/>
           )}
         />
       </Switch>

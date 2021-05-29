@@ -15,9 +15,6 @@ function Header(props){
         <Link to='/auth/login'>
           <div>Log In</div>
         </Link>
-        <Link to='/'>
-          <div onClick={() => {}}>Log Out</div>
-        </Link>
       </nav>
     );
 };

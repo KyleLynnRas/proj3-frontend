@@ -6,13 +6,15 @@ const Login = (props) => {
     const userURL = "http://localhost:8080/auth/"
 
     const userLogIn = async (loggedInUser) => {
-        await fetch(userURL + "login", {
+        const response = await fetch(userURL + "login", {
           method: "post",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(loggedInUser)
         });
+        const data = await response.json()
+        props.getToken(data.data.token)
         props.history.push('/jobs');
       };
 
@@ -41,6 +43,7 @@ const Login = (props) => {
             <input type="password" name="password" value={formData.password} onChange={handleChange}/>
             <input type="submit" value="Login" />
             </form>
+            <p>Or sign up <a href='/auth/signup'>here</a>!</p>
         </div>
     );
 };
