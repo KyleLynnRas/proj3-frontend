@@ -38,7 +38,7 @@ const CompanyForm = (props) => {
               </Form.Control>
           </Form.Field>
         </form>
-        </div>
+      </div>
     );
 };
 
