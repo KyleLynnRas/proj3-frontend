@@ -4,6 +4,7 @@ import Index from "../pages/Index";
 import Show from "../pages/Show";
 import Search from "../pages/Search";
 import Edit from "../pages/Edit";
+import Home from "../pages/Home";
 
 
 function Main(props){
@@ -55,6 +56,9 @@ function Main(props){
   return (
     <main>
       <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route exact path="/jobs">
           <Index jobs={jobs}/>
         </Route>

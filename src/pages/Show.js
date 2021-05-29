@@ -19,7 +19,7 @@ function Show(props){
           <section className="show-title-container">
             <h1 className="show-title-text">{job.title}</h1>
           </section>
-        <section className="show-content">
+          <section className="show-content">
             <h1>Your-MacBook-Air: User$ cd unit-3-project</h1>
             <h1>Your-MacBook-Air:unit-3-project User$ npm start career</h1>
             <h1 className="show-console-one">{job.title} - {job.job_type}</h1>
