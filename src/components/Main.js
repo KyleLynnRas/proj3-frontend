@@ -11,17 +11,8 @@ import Signup from "./Signup";
 
 function Main(props){
 
-  const URL = "https://proj3-backend.herokuapp.com/jobs/";
-
-  const createUser = async (newUser) => {
-    await fetch(URL + "signup", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newUser)
-    });
-  };
+  // const URL = "https://proj3-backend.herokuapp.com/jobs/";
+  const URL = "http://localhost:8080/jobs/"
 
   const getUsers = async () => {
     const response = await fetch(URL);
@@ -106,12 +97,12 @@ function Main(props){
             />
           )}
         />
-        <Route path="/jobs/signup" 
+        <Route path="/auth/signup" 
           render={(rp) => ( 
             <Signup {...rp} />
           )}
         />
-        <Route path="/jobs/login" 
+        <Route path="/auth/login" 
           render={(rp) => (
             <Login {...rp} />
           )}

@@ -1,7 +1,21 @@
 import React from "react";
-import { useState } from "react"
 
 const Login = (props) => {
+
+   // const userURL = "https://proj3-backend.herokuapp.com/auth/";
+    const userURL = "http://localhost:8080/auth/"
+
+    const userLogIn = async (loggedInUser) => {
+        await fetch(userURL + "login", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(loggedInUser)
+        });
+        props.history.push('/jobs');
+      };
+
 
     const [formData, setFormData] = React.useState({
         username: "",
@@ -14,7 +28,7 @@ const Login = (props) => {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.createUser(formData)
+        userLogIn(formData)
     };
     
     return (
