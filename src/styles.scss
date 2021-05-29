@@ -5,12 +5,16 @@
 /*--fonts--*/
 $postIt: 'Gloria Hallelujah', cursive;
 $main: 'Raleway', sans-serif;
+$console: 'IBM Plex Mono', monospace;
 
 /*--imgs--*/
 $bluePost: url("https://i.imgur.com/5VChaBJ.png");
 $greenPost: url("https://i.imgur.com/YAhCS5S.png");
 $brickSmall: url("https://i.imgur.com/WljWs1A.jpg");
 $brick500: url("https://i.imgur.com/a4LhMkW.jpg");
+
+
+$grayBack: rgba(128, 128, 128, 0.767);
 
 @mixin flex-column {
     display: flex;
@@ -126,6 +130,7 @@ body {
 // Search 
 // --------------------------
 .search-container {
+    height: 100%;
     background-image: $brickSmall;
     @include backgroundImage;
     @include flex-column;
@@ -285,6 +290,116 @@ span {
 }
 
 // --------------------------
+// Show
+// --------------------------
+.show-container {
+    background-image: url("https://i.imgur.com/DB4IbuX.png");
+    @include backgroundImage;
+    @include flex-column;
+    height: 100%;
+}
+
+.show-title-container {
+    background-color: $grayBack;
+    width: 100%;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+   
+    .show-title-text {
+        font-family: $postIt;
+        color: #fff;
+        font-size: 30px;
+    }
+}
+
+.show-content {
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.927); 
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    padding: 20px;
+    font-family: $console;
+    color: #fff;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.show-console-one {
+    margin-top: 10px;
+}
+
+.console-link-span {
+    margin-left: 5px;
+}
+
+.console-link {
+    color: #fff;
+}
+
+.console-link:visited {
+    color: #fff;
+}
+
+.console-link-i {
+    font-size: 15px;
+    color: #fff;
+}
+
+.show-checkBoxes {
+    margin-top: 15px;
+
+    h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .show-icon-span {
+        margin-right: 7px;
+    }
+
+    .show-check-no {
+        color: rgb(206, 51, 51);
+        font-size: 15px;
+    }
+
+    .show-check-yes {
+        color: rgb(43, 140, 43);
+        font-size: 15px;
+    }
+
+}
+
+.show-notes {
+    margin-top: 15px;
+
+    p {
+        margin-top: 10px;
+    }
+}
+
+.show-buttons {
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.927); 
+    width: 60%;
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+
+    #edit, #delete {
+        background-color: transparent;
+        border: none;
+    }
+    .fa-edit, .fa-trash {
+        font-size: 19px;
+        color: #fff;
+    }
+}
+
+// --------------------------
 // Media Query
 // --------------------------
 @media screen and (min-width: 500px) {
@@ -324,6 +439,10 @@ span {
 }
 
 /*--SEARCH--*/
+// .search-container {
+//     @include backgroundImage;
+// }
+
 .search-title-container {
     @include flex-row;
     padding: 0;
@@ -379,6 +498,82 @@ span {
 
 .co-control, .spec-control {    
     @include flex-row;
+}
+
+/*---SHOW--*/
+.show-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.show-title-container {
+    padding: 55px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+   
+    .show-title-text {
+        font-size: 40px;
+    }
+}
+
+.show-content {
+    width: 70%;
+    font-size: 20px;
+    padding: 25px;
+}
+
+.show-console-one {
+    margin-top: 15px;
+}
+
+.console-link-span {
+    margin-left: 10px;
+}
+
+.console-link-i {
+    font-size: 20px;
+}
+
+.show-checkBoxes {
+    margin-top: 20px;
+
+    h2 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .show-icon-span {
+        margin-right: 10px;
+    }
+
+    .show-check-no {
+        font-size: 20px;
+    }
+
+    .show-check-yes {
+        font-size: 20px;
+    }
+
+}
+
+.show-notes {
+    margin-top: 22px;
+
+    p {
+        margin-top: 15px;
+    }
+}
+
+.show-buttons {
+    margin-bottom: 50px;
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    .fa-edit, .fa-trash {
+        font-size: 20px;
+    }
 }
 
 }
@@ -483,6 +678,76 @@ span {
     }
 }
 
+/*---SHOW--*/
+.show-title-container {
+    padding: 65px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+   
+    .show-title-text {
+        font-size: 50px;
+    }
+}
+
+.show-content {
+    width: 75%;
+    font-size: 25px;
+}
+
+.show-console-one {
+    margin-top: 20px;
+}
+
+.console-link-span {
+    margin-left: 10px;
+}
+
+.console-link-i {
+    font-size: 25px;
+}
+
+.show-checkBoxes {
+    margin-top: 25px;
+    margin-bottom: 30px;
+
+    h2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .show-icon-span {
+        margin-right: 15px;
+    }
+
+    .show-check-no {
+        font-size: 25px;
+    }
+
+    .show-check-yes {
+        font-size: 25px;
+    }
+
+}
+
+.show-notes {
+    margin-top: 30px;
+
+    p {
+        margin-top: 20px;
+    }
+}
+
+.show-buttons {
+    width: 50%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    padding: 40px;
+
+    .fa-edit, .fa-trash {
+        font-size: 25px;
+    }
+}
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -577,6 +842,19 @@ span {
     p, a {
         font-size: 29px;
     }
+}
+
+/*---SHOW--*/
+.show-container {
+    height: 100%;
+}
+
+.show-title-container {
+    margin-bottom: 120px;
+}
+
+.show-content {
+    width: 70%;
 }
 
 }
