@@ -21,6 +21,9 @@ function Index(props){
       <section className="title-container">
         <h1>npm Start Career</h1>
       </section>
+      <section className="index-title-container">
+        <h2>My jobs</h2>
+      </section>
       <section className="section">
         {props.jobs ? loaded() : loading()}
       </section>

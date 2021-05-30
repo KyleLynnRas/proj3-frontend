@@ -12,7 +12,7 @@ $bluePost: url("https://i.imgur.com/5VChaBJ.png");
 $greenPost: url("https://i.imgur.com/YAhCS5S.png");
 $brickSmall: url("https://i.imgur.com/WljWs1A.jpg");
 $brick500: url("https://i.imgur.com/a4LhMkW.jpg");
-
+$showPic: url("https://i.imgur.com/ooBxPb6.jpg");
 
 $grayBack: rgba(128, 128, 128, 0.767);
 
@@ -57,6 +57,7 @@ body {
     background-image: url("https://i.imgur.com/VvJn5B5.jpg");
     display: flex;
     flex-direction: column;
+    align-items: center;
     @include backgroundImage;
 }
 
@@ -79,12 +80,26 @@ body {
 .title-container {
     margin-top: 40px;
     background-color: rgba(128, 128, 128, 0.767);
-    width: 100vw;
+    width: 100%;
     padding: 30px;
 
     h1 {
         font-family: $postIt;
         font-size: 35px;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+.index-title-container {
+    margin-top: 60px;
+    background-color: rgba(128, 128, 128, 0.767);
+    width: 50%;
+    padding: 20px;
+
+    h2 {
+        font-family: $postIt;
+        font-size: 26px;
         color: #fff;
         font-weight: bold;
     }
@@ -105,7 +120,7 @@ body {
 
 .job-container {
     background-color: transparent;
-    width: 90vw;
+    width: 90%;
     margin: 10px;
     @include backgroundImage;
     text-align: center;
@@ -503,6 +518,17 @@ span {
     }
 }
 
+.index-title-container {
+    margin-top: 70px;
+    width: 50%;
+    padding: 20px;
+    margin-bottom: 40px;
+
+    h2 {
+        font-size: 30px;
+    }
+}
+
 .section, .result-list-container {
     align-self: flex-start;
     width: 100vw;
@@ -713,6 +739,16 @@ span {
         }
 }
 
+.index-title-container {
+    margin-top: 90px;
+    width: 50%;
+    padding: 30px;
+
+    h2 {
+        font-size: 35px;
+    }
+}
+
 .index-card-title, .search-res-title {
     font-size: 26px;
 }
@@ -920,10 +956,10 @@ span {
 @media screen and (min-width: 1200px) {
 .index-container {
     height: 100%;
-    background-image: url("https://i.imgur.com/pve3Zi7.jpg");
-    background-image: linear-gradient(#e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/pve3Zi7.jpg");
-    background-image: -webkit-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/pve3Zi7.jpg");
-    background-image: -moz-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), url("https://i.imgur.com/pve3Zi7.jpg");
+    background-image: $showPic;
+    background-image: linear-gradient(#e4e4e436, rgba(75, 75, 75, 0.137)), $showPic;
+    background-image: -webkit-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), $showPic;
+    background-image: -moz-linear-gradient( #e4e4e436, rgba(75, 75, 75, 0.137)), $showPic;
     @include flex-column;
 }
 
@@ -938,7 +974,7 @@ span {
 }
 
 .section {
-    width: 70%;
+    width: 75%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
