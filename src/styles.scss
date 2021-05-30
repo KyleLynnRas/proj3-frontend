@@ -453,6 +453,12 @@ span {
     }
 }
 
+.auth-btns {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .home-start-btn {
     font-family: $postIt;
     font-weight: bold;
@@ -739,6 +745,11 @@ span {
         font-size: 18px;
     }
 }
+
+.auth-btns {
+    width: 50%;
+}
+
 
 .features-container {
     margin-top: 50px;
@@ -1132,6 +1143,10 @@ span {
     p {
         margin-top: 35px;
     }
+}
+
+.auth-btns {
+    width: 40%;
 }
 
 .features-container {

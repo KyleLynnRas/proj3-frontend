@@ -14,7 +14,10 @@ const Home = (props) => {
             <h1>npm start career</h1>
             <p>DevInitely the best way to stay organized in your dev job search</p>
         </section>
-        <Link to="/jobs"><Button className="home-start-btn">Get Started</Button></Link>
+        <section className="auth-btns">
+            <Link to="/auth/signup"><Button className="home-start-btn">Sign up</Button></Link>
+            <Link to="/auth/login"><Button className="home-start-btn">Sign in</Button></Link>
+        </section>
         <section className="features-container">
             <Card className="feat-one">
                 <Link to="/jobs/search" className="home-link">

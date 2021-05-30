@@ -38,7 +38,7 @@ function Header(props){
                 <BsSearch className="nav-icon" />Search Jobs
               </Link>
             </Navbar.Item>
-            <Navbar.Item>
+            {/* <Navbar.Item>
               <Link to= "/auth/signup">
                 Signup
               </Link>
@@ -47,7 +47,7 @@ function Header(props){
               <Link to='/auth/login'>
                 Log In
               </Link>
-            </Navbar.Item>
+            </Navbar.Item> */}
           </Navbar.Container>
         </Navbar.Menu>
       </Navbar>
