@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import SpecialtyForm from "../components/SpecialtyForm";
 import CompanyForm from "../components/CompanyForm";
 import Result from "../components/Result";
