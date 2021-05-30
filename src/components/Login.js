@@ -1,4 +1,6 @@
 import React from "react";
+//Bulma
+import {Form, Button} from "react-bulma-components";
 
 const Login = (props) => {
 
@@ -34,16 +36,24 @@ const Login = (props) => {
     };
     
     return (
-        <div className="Login">
+        <div className="login-container">
+           <section className="login-title-container">
             <h1>Log-in</h1>
+          </section>
+          <section className="login-content">
             <form onSubmit={handleSubmit}>
-            <label>Username</label>
-            <input type="text" name="username" value={formData.username} onChange={handleChange}/>
-            <label>Password</label>
-            <input type="password" name="password" value={formData.password} onChange={handleChange}/>
-            <input type="submit" value="Login" />
+              <Form.Field>
+                <Form.Label className="auth-label">Username</Form.Label>
+                <Form.Input className="auth-input" type="text" name="username" value={formData.username} onChange={handleChange}/>
+                <Form.Label className="auth-label">Password</Form.Label>
+                <Form.Input className="auth-input" type="password" name="password" value={formData.password} onChange={handleChange}/>
+                <Button className="auth-btn is-small" type="submit" value="Login">Login</Button>
+              </Form.Field>
             </form>
-            <p>Or sign up <a href='/auth/signup'>here</a>!</p>
+          </section>
+          <section className="signup-box">
+              <p>Or sign up <a href='/auth/signup'>here</a>!</p>
+          </section>
         </div>
     );
 };

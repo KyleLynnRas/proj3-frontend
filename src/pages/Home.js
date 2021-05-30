@@ -16,7 +16,7 @@ const Home = (props) => {
         </section>
         <section className="auth-btns">
             <Link to="/auth/signup"><Button className="home-start-btn">Sign up</Button></Link>
-            <Link to="/auth/login"><Button className="home-start-btn">Sign in</Button></Link>
+            <Link to="/auth/login"><Button className="home-start-btn">Log in</Button></Link>
         </section>
         <section className="features-container">
             <Card className="feat-one">

@@ -123,16 +123,17 @@ function Main(props){
             />
           )}
         />
-        {/* <Route path="/auth/signup" 
+        <Route path="/auth/signup" 
           render={(rp) => ( 
             <Signup {...rp} />
           )}
         />
         <Route path="/auth/login" 
           render={(rp) => (
-            <Login {...rp} getToken={getToken}/>
+            // <Login {...rp} getToken={getToken}/>
+            <Login {...rp} />
           )}
-        /> */}
+        />
       </Switch>
     </main>
   );
