@@ -77,6 +77,13 @@ function Search(props){
     ) 
   };
 
+  useEffect(() => {
+    if (props.token) {
+    } else {
+      props.history.push('/auth/login')
+    }
+  }, [])
+
   return(
     <div className="search-container">
       <section className="search-title-container">
