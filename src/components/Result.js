@@ -3,7 +3,6 @@ import React from "react";
 import {Card, Button} from "react-bulma-components";
 //icons
 import {BiLinkAlt} from "react-icons/bi";
-import {GiSaveArrow} from "react-icons/gi";
 
 const Result = (props) => {
 
@@ -17,7 +16,7 @@ const Result = (props) => {
           <h2>Type: {props.job_type}</h2>
           <section className="result-card-btn-box">
             <a href={props.url} target="_blank" rel="noreferrer" className="result-link result-btn"><BiLinkAlt /></a><br/>
-            <Button className="save-btn result-btn" onClick={props.handleChange} id={props.id}><span><GiSaveArrow /></span></Button>
+            <Button className="save-btn result-btn" onClick={props.handleChange} id={props.id}><i class="fas fa-file-download"></i></Button>
           </section>
         </Card.Content>
       </Card>

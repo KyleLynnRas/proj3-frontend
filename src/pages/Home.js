@@ -12,6 +12,7 @@ const Home = (props) => {
       <div className="home-container">
         <section className="home-title-container">
             <h1>npm start career</h1>
+            <p>DevInitely the best way to stay organized in your dev job search</p>
         </section>
         <Link to="/jobs"><Button className="home-start-btn">Get Started</Button></Link>
         <section className="features-container">

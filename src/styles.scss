@@ -289,6 +289,10 @@ span {
     font-size: 20px;
 }
 
+.fa-file-download {
+    font-size: 18px;
+}
+
 .remotive-blurb {
     margin-top: 40px;
     background-color: rgba(128, 128, 128, 0.767);
@@ -432,18 +436,34 @@ span {
     background-color: rgba(128, 128, 128, 0.767);
     width: 100vw;
     padding: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
 
     h1 {
         font-family: $postIt;
         font-size: 35px;
         color: #fff;
         font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #fff;
+        margin-top: 15px;
+        font-style: italic;
     }
 }
 
+.home-start-btn {
+    font-family: $postIt;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 30px;
+    color: #fff;
+    background-color: rgba(128, 128, 128, 0.767);
+}
+
 .features-container {
-    margin-top: 30px;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -480,15 +500,6 @@ span {
     .home-link {
         color: rgb(65, 65, 65);
     }
-}
-
-.home-start-btn {
-    font-family: $postIt;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 30px;
-    color: #fff;
-    background-color: rgba(128, 128, 128, 0.767);
 }
 
 
@@ -542,9 +553,14 @@ span {
     padding: 25px;
 }
 
-/*--SEARCH--*/
+// /*--SEARCH--*/
 // .search-container {
-//     @include backgroundImage;
+//     // @include backgroundImage;
+//     background-image: $showPic;
+//     background-repeat: no-repeat;
+//     background-size: 100% 100%;
+    
+
 // }
 
 .search-title-container {
@@ -693,6 +709,11 @@ span {
     h1 {
         font-size: 45px;
     }
+
+    p {
+        margin-top: 25px;
+        font-size: 18px;
+    }
 }
 
 .features-container {
@@ -828,6 +849,10 @@ span {
     font-size: 25px;
 }
 
+.fa-file-download  {
+    font-size: 22px;
+}
+
 .remotive-blurb {
     margin-top: 60px;
     width: 60vw;
@@ -921,6 +946,11 @@ span {
     h1 {
         font-size: 55px;
     }
+
+    p {
+        margin-top: 30px;
+        font-size: 22px;
+    }
 }
 
 .features-container {
@@ -964,6 +994,7 @@ span {
 }
 
 .title-container {
+    
     h1 {
         font-size: 60px;
     }
@@ -1062,7 +1093,7 @@ span {
 
 /*--HOME--*/
 .home-container {
-    height: 100vh;
+    height: 100%;
 }
 
 .home-title-container {
@@ -1072,6 +1103,10 @@ span {
 
     h1 {
         font-size: 55px;
+    }
+
+    p {
+        margin-top: 35px;
     }
 }
 
