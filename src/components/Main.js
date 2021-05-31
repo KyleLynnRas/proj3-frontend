@@ -13,8 +13,8 @@ import Signup from "./Signup";
 function Main(props){
 
   
-  const URL = "https://proj3-backend.herokuapp.com/jobs/";
-  // const URL = "http://localhost:8080/jobs/"
+  // const URL = "https://proj3-backend.herokuapp.com/jobs/";
+  const URL = "http://localhost:8080/jobs/"
   
   const [token, setToken] = useState(null) 
   

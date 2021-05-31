@@ -3,8 +3,8 @@ import { useState } from "react"
 
 const Signup = (props) => {
 
-    const userURL = "https://proj3-backend.herokuapp.com/auth/";
-    // const userURL = "http://localhost:8080/auth/"
+    // const userURL = "https://proj3-backend.herokuapp.com/auth/";
+    const userURL = "http://localhost:8080/auth/"
 
     const createUser = async (newUser) => {
         await fetch(userURL + "signup", {
