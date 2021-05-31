@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {Form} from "react-bulma-components";
 
 function Edit(props) {
   const id = props.match.params.id;
