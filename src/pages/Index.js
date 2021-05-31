@@ -1,4 +1,5 @@
 import JobCard from "../components/JobCard"
+import { useEffect } from "react"
 
 function Index(props){
     
@@ -12,10 +13,18 @@ function Index(props){
     return <h1>Loading..</h1>
   }
   
+  useEffect(() => {
+    console.log(props.token)
+    if (props.token) {
+    } else {
+      props.history.push('/auth/login')
+    }
+  }, [])
+
   return(
     <div className="index-container">
       <h1>App Title</h1>
-      {props.jobs ? loaded() : loading()}
+      {props.jobs && props.jobs instanceof Array ? loaded() : loading()}
     </div>
     )
   } 

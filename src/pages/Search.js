@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Form from "../components/Form";
 import CompanyForm from "../components/CompanyForm";
 import Result from "../components/Result";
@@ -58,6 +58,13 @@ function Search(props){
   const loading = () => {
     return <h1>Search for a job to begin</h1>
   };
+
+  useEffect(() => {
+    if (props.token) {
+    } else {
+      props.history.push('/auth/login')
+    }
+  }, [])
 
   return(
     <div className="search-container">
