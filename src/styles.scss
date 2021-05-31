@@ -43,7 +43,6 @@ $grayBack: rgba(128, 128, 128, 0.767);
     margin: 0;
     padding: 0;
 }
-<<<<<<< HEAD
 
 body {
     font-family: $main;
@@ -475,6 +474,7 @@ span {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 60px;
 }
 
 .feat-one, .feat-two, .feat-three {
@@ -535,9 +535,21 @@ span {
 }
 
 // --------------------------
-// Login
+// Login/Signup
 // --------------------------
-.login-container, .signup-container {
+.login-container {
+    height: 100%;
+    background-image: url("https://i.imgur.com/DB4IbuX.png");
+    background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include backgroundImage;
+}
+
+.signup-container {
     height: 100vh;
     background-image: url("https://i.imgur.com/DB4IbuX.png");
     background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
@@ -600,17 +612,12 @@ span {
 }
 
 // --------------------------
-// Sign up 
-// --------------------------
-
-// --------------------------
 // Footer
 // --------------------------
 .main-footer {
     color: white;
-    background-color: rgb(66, 71, 74);
-    padding-top: 2em;
-    position: fixed;
+    background-color: rgb(47, 47, 47);
+    padding: 2em;
     bottom: 0;
     width: 100%;
 }
@@ -629,7 +636,6 @@ span {
     align-items: center;
     @include backgroundImage;
 }
-
 
 // --------------------------
 // Media Query
@@ -1419,7 +1425,5 @@ span {
     width: 50%;
 }
 
-
-}
 
 }
