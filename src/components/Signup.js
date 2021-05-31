@@ -1,5 +1,7 @@
 import React from "react";
-import { useState } from "react"
+import { useState } from "react";
+//Bulma
+import {Form, Button} from "react-bulma-components";
 
 const Signup = (props) => {
 
@@ -33,15 +35,21 @@ const Signup = (props) => {
     };
     
     return (
-        <div className="Signup">
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit}>
-            <label>Username</label>
-            <input type="text" name="username" value={formData.username} onChange={handleChange}/>
-            <label>Password</label>
-            <input type="password" name="password" value={formData.password} onChange={handleChange}/>
-            <input type="submit" value="Signup" />
-            </form>
+        <div className="signup-container">
+            <section className="login-title-container">
+                <h1>Sign Up</h1>
+            </section>
+            <section className="signup-content">
+              <form onSubmit={handleSubmit}>
+                <Form.Field>
+                    <Form.Label className="auth-label">Username</Form.Label>
+                    <Form.Input className="auth-input"  type="text" name="username" value={formData.username} onChange={handleChange}/>
+                    <Form.Label className="auth-label">Password</Form.Label>
+                    <Form.Input className="auth-input"  type="password" name="password" value={formData.password} onChange={handleChange}/>
+                    <Button type="submit" value="Signup">Sign up</Button>
+                </Form.Field>
+              </form>
+            </section>
         </div>
     );
 };

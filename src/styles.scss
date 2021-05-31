@@ -536,8 +536,8 @@ span {
 // --------------------------
 // Login
 // --------------------------
-.login-container {
-    height: 100%;
+.login-container, .signup-container {
+    height: 100vh;
     background-image: url("https://i.imgur.com/DB4IbuX.png");
     background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
     background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
@@ -562,7 +562,7 @@ span {
     }
 }
 
-.login-content {
+.login-content, .signup-content {
     @include flex-column;
     background-color: $grayBack;
     color: #fff;
@@ -597,6 +597,10 @@ span {
     }
 
 }
+
+// --------------------------
+// Sign up 
+// --------------------------
 
 // --------------------------
 // Media Query
@@ -894,6 +898,13 @@ span {
 
 .auth-label {
     font-size: 20px;
+}
+
+/*--SIGN UP--*/
+.signup-content {
+    margin-top: 120px;
+    padding: 40px;
+    width: 70%;
 }
 
 }
@@ -1371,5 +1382,13 @@ span {
 .auth-label {
     font-size: 25px;
 }
+
+/*--SIGN UP--*/
+.signup-content {
+    margin-top: 120px;
+    padding: 40px;
+    width: 50%;
+}
+
 
 }
