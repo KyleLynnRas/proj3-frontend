@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {Form} from "react-bulma-components";
 
 function Edit(props) {
   const id = props.match.params.id;
@@ -23,7 +24,7 @@ function Edit(props) {
 }
 
   return (
-      <div className='job'>
+      <div className='edit-container'>
         <h1>Edit Form</h1>
         <form onSubmit={handleSubmit}>
           <textarea value={editForm.notes} name="notes" placeholder="Notes" onChange={handleChange}></textarea><br></br>
