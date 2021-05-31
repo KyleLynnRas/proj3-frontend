@@ -21,10 +21,6 @@ function Main(props){
    setToken(t)
   }
 
-  const logOut = () => {
-    setToken('')
-  }
-
   const [jobs, setJobs] = useState(null);
 
   const getJobs = async () => {

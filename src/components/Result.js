@@ -16,7 +16,7 @@ const Result = (props) => {
           <h2>Type: {props.job_type}</h2>
           <section className="result-card-btn-box">
             <a href={props.url} target="_blank" rel="noreferrer" className="result-link result-btn"><BiLinkAlt /></a><br/>
-            <Button className="save-btn result-btn" onClick={props.handleChange} id={props.id}><i id={props.id}class="fas fa-file-download"></i></Button>
+            <Button className="save-btn result-btn" onClick={props.handleChange} id={props.id}><i id={props.id} className="fas fa-file-download"></i></Button>
           </section>
         </Card.Content>
       </Card>

@@ -34,16 +34,16 @@ function Show(props){
             <div className="show-checkBoxes">
               <h2>Progress:</h2>
               <p><span className="show-icon-span">{job.applied === true ? <FiCheckCircle className="show-check-yes"/>: <FiXCircle className="show-check-no"/> }</span>I have applied to this job</p>
-              <p><span className="show-icon-span">{job.applied === true ? <FiCheckCircle className="show-check-yes"/>: <FiXCircle className="show-check-no"/> }</span>I have interviewed at this job</p>
-              <p><span className="show-icon-span">{job.applied === true ? <FiCheckCircle className="show-check-yes"/>: <FiXCircle className="show-check-no"/> }</span>I have submitted my cover letter</p>
-              <p><span className="show-icon-span">{job.applied === true ? <FiCheckCircle className="show-check-yes"/>: <FiXCircle className="show-check-no"/> }</span>I have submitted my resume</p>
+              <p><span className="show-icon-span">{job.interviewed === true ? <FiCheckCircle className="show-check-yes"/>: <FiXCircle className="show-check-no"/> }</span>I have interviewed at this job</p>
+              <p><span className="show-icon-span">{job.cover_letter === true ? <FiCheckCircle className="show-check-yes"/>: <FiXCircle className="show-check-no"/> }</span>I have submitted my cover letter</p>
+              <p><span className="show-icon-span">{job.resume === true ? <FiCheckCircle className="show-check-yes"/>: <FiXCircle className="show-check-no"/> }</span>I have submitted my resume</p>
             </div>
           </section>
           <section className='show-buttons'>
             <Link to={`/jobs/${id}/edit`}>
               <button id='edit'><i class="fas fa-edit"></i></button>
             </Link>
-            <button id="delete" onClick={removeJobs}><i class="fas fa-trash"></i></button>
+            <button id="delete" onClick={removeJobs}><i className="fas fa-trash"></i></button>
           </section>
       </div>
     );

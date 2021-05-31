@@ -20,7 +20,7 @@ function Header(props){
       <Navbar className="nav is-dark">
         <Navbar.Brand>
           <Navbar.Item>
-            <Link to="/">
+            <Link className="nav-link" to="/">
               <FaHome className="nav-icon"/>Home
             </Link>
           </Navbar.Item>
@@ -29,12 +29,12 @@ function Header(props){
         <Navbar.Menu className={burger}>
           <Navbar.Container>
             <Navbar.Item >
-              <Link to="/jobs">
+              <Link className="nav-link" to="/jobs">
                 <MdBusinessCenter className="nav-icon" />My Jobs
               </Link>
             </Navbar.Item>
             <Navbar.Item>
-              <Link to="/jobs/search">
+              <Link className="nav-link" to="/jobs/search">
                 <BsSearch className="nav-icon" />Search Jobs
               </Link>
             </Navbar.Item>
