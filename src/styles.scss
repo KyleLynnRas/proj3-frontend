@@ -1,0 +1,57 @@
+$postIt: ‘Gloria Hallelujah’, cursive;
+$main: ‘Raleway’, sans-serif;
+
+@mixin flex-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@mixin flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+@mixin backgroundImage {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+// --------------------------
+// Body
+// --------------------------
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: $main;
+    text-align: center;
+
+}
+// --------------------------
+// Footer
+// --------------------------
+    .main-footer {
+    color: white;
+    background-color: rgb(66, 71, 74);
+    padding-top: 2em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+// --------------------------
+// Edit.js
+// --------------------------
+    .edit-container {
+    height: 100vh;
+    background-image: url("https://i.imgur.com/a78WcO1.jpg");
+    background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    display: flex;
+    flex-direction: column;
+    @include backgroundImage;
+    }
