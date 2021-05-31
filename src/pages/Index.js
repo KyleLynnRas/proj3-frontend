@@ -17,13 +17,13 @@ function Index(props){
     );
   };
   
-  // useEffect(() => {
-  //   console.log(props.token)
-  //   if (props.token) {
-  //   } else {
-  //     props.history.push('/auth/login')
-  //   }
-  // }, [])
+  useEffect(() => {
+    console.log(props.token)
+    if (props.token) {
+    } else {
+      props.history.push('/auth/login')
+    }
+  }, [])
 
   return(
     <div className="index-container">
@@ -34,8 +34,7 @@ function Index(props){
         <h2>My jobs</h2>
       </section>
       <section className="section">
-      {props.jobs ? loaded() : loading()}
-      {/* {props.jobs && props.jobs instanceof Array ? loaded() : loading()} */}
+      {props.jobs && props.jobs instanceof Array ? loaded() : loading()}
       </section>
     </div>
     );

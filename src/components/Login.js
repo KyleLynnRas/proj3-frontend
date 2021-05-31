@@ -5,7 +5,7 @@ import {Form, Button} from "react-bulma-components";
 const Login = (props) => {
 
    const userURL = "https://proj3-backend.herokuapp.com/auth/";
-    // const userURL = "http://localhost:8080/auth/"
+  //  const userURL = "http://localhost:8080/auth/";
 
     const userLogIn = async (loggedInUser) => {
         const response = await fetch(userURL + "login", {

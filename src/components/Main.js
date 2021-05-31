@@ -13,25 +13,25 @@ function Main(props){
 
   
   const URL = "https://proj3-backend.herokuapp.com/jobs/";
-  // const URL = "http://localhost:8080/jobs/"
+  // const URL = "http://localhost:8080/jobs/";
   
-  // const [token, setToken] = useState(null) 
+  const [token, setToken] = useState(null) 
   
-  // const getToken = (t) => {
-  //  setToken(t)
-  // }
+  const getToken = (t) => {
+   setToken(t)
+  }
 
-  // const logOut = () => {
-  //   setToken('')
-  // }
+  const logOut = () => {
+    setToken('')
+  }
 
   const [jobs, setJobs] = useState(null);
 
   const getJobs = async () => {
     const response = await fetch(URL, {
-      // headers: {
-      //   'x-access-token': token
-      // }
+      headers: {
+        'x-access-token': token
+      }
     });
     const data = await response.json();
     setJobs(data);
@@ -43,7 +43,7 @@ function Main(props){
       method: "post",
       headers: {
         "Content-Type": "application/json",
-        // "x-access-token": token
+        "x-access-token": token
       },
       body: JSON.stringify(newJob)
     });
@@ -54,7 +54,7 @@ function Main(props){
     await fetch(URL + id, {
       method: 'delete',
       headers: {
-      //  'x-access-token': token
+       'x-access-token': token
       }
     });
     getJobs();
@@ -66,7 +66,7 @@ function Main(props){
       method: 'put',
       headers: {
         "Content-Type": "application/json",
-        // "x-access-token": token
+        "x-access-token": token
       },
       body: JSON.stringify(job)
     })
@@ -74,14 +74,13 @@ function Main(props){
     getJobs()
   }
 
-  useEffect(() => getJobs(), []);
-  // useEffect(() => {
-  //   if(token){
-  //     getJobs();
-  //   } else {
-  //     Redirect('/auth/login')
-  //   }
-  // }, [token]);
+  useEffect(() => {
+    if(token){
+      getJobs();
+    } else {
+      Redirect('/auth/login')
+    }
+  }, [token]);
 
   return (
     <main>
@@ -89,16 +88,13 @@ function Main(props){
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/jobs">
-          <Index jobs={jobs}/>
-        </Route>
-        {/* <Route exact path="/jobs" render={(rp) => <Index jobs={jobs} token={token} {...rp}/>}/> */}
+        <Route exact path="/jobs" render={(rp) => <Index jobs={jobs} token={token} {...rp}/>}/>
         <Route 
           path="/jobs/search"
           render={(rp) => (
             <Search
             jobs={jobs}
-            // token={token}
+            token={token}
             createJob={createJob}
               {...rp}
             />
@@ -130,8 +126,7 @@ function Main(props){
         />
         <Route path="/auth/login" 
           render={(rp) => (
-            // <Login {...rp} getToken={getToken}/>
-            <Login {...rp} />
+            <Login {...rp} getToken={getToken}/>
           )}
         />
       </Switch>
