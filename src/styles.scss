@@ -653,8 +653,34 @@ span {
     background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
     display: flex;
     flex-direction: column;
-    align-items: center;
+    @include flex-column;
     @include backgroundImage;
+}
+
+.edit-title-container {
+    margin-top: 60px;
+    justify-self: flex-start;
+    width: 100%;
+    background-color: $grayBack;
+    padding: 35px;
+    h1 {
+        font-family: $postIt;
+        color: #fff;
+        font-size: 30px;
+    }
+}
+
+.form-container {
+    @include flex-column;
+    background-color: $grayBack;
+    color: #fff;
+    margin-top: 50px;
+    padding: 35px;
+    width: 60%;
+}
+
+.form-label-container {
+    margin-bottom: 10px;
 }
 
 // --------------------------
@@ -1468,3 +1494,23 @@ span {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

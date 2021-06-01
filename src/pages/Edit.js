@@ -1,5 +1,5 @@
 import { useState } from "react"
-import {Form} from "react-bulma-components";
+import {Form, Button} from "react-bulma-components";
 
 function Edit(props) {
   const id = props.match.params.id;
@@ -25,32 +25,39 @@ function Edit(props) {
 
   return (
       <div className='edit-container'>
-        <h1>Edit Form</h1>
+        <section className="edit-title-container"><h1>Edit Form</h1></section>
+        <section className="form-container">
         <form onSubmit={handleSubmit}>
-          <textarea value={editForm.notes} name="notes" placeholder="Notes" onChange={handleChange}></textarea><br></br>
-          <h1>Applied</h1>
-            <label for="Apply">Done</label>
-            <input type="checkbox" value={true} name="applied" onChange={handleChange}></input><br></br>
-            <label for="Apply">Not done</label>
-            <input type="checkbox" value={false} name="applied" onChange={handleChange}></input><br></br>
-          <h1>Interviewed</h1>
-            <label for="Interview">Done</label>
-            <input type="checkbox" value={true} name="interviewed" onChange={handleChange}></input><br></br>
-            <label for="Interview">Not done</label>
-            <input type="checkbox" value={false} name="interviewed" onChange={handleChange}></input><br></br>
-          <h1>Cover Letter</h1>
-            <label for="Cover_letter">Done</label>
-            <input type="checkbox" value={true} name="cover_letter" onChange={handleChange}></input><br></br>
-            <label for="Cover_letter">Not done</label>
-            <input type="checkbox" value={false} name="cover_letter" onChange={handleChange}></input><br></br>
-          <h1>Resume</h1>
-            <label for="Resume">Done</label>
-            <input type="checkbox" value={true} name="resume" onChange={handleChange}></input><br></br>
-            <label for="Resume">Not done</label>
-            <input type="checkbox" value={false} name="resume" onChange={handleChange}></input><br></br>
-            <input type="submit" value="UPDATE" />
+          <Form.Field>
+            <Form.Control>
+              <Form.Label className="form-label-container">Notes</Form.Label><br></br>
+              <Form.Textarea value={editForm.notes} name="notes" placeholder="Notes" onChange={handleChange}/><br></br>
+              <h1>Applied</h1>
+              <Form.Label for="Apply">Done</Form.Label>
+              <Form.Checkbox type="checkbox" value={true} name="applied" onChange={handleChange}/><br></br>
+              <Form.Label for="Apply">Not done</Form.Label>
+              <Form.Checkbox type="checkbox" value={false} name="applied" onChange={handleChange}/><br></br>
+              <h1>Interviewed</h1>
+              <Form.Label for="Interview">Done</Form.Label>
+              <Form.Checkbox type="checkbox" value={true} name="interviewed" onChange={handleChange}/><br></br>
+              <Form.Label for="Interview">Not done</Form.Label>
+              <Form.Checkbox type="checkbox" value={false} name="interviewed" onChange={handleChange}/><br></br>
+              <h1>Cover Letter</h1>
+              <Form.Label for="Cover_letter">Done</Form.Label>
+              <Form.Checkbox type="checkbox" value={true} name="cover_letter" onChange={handleChange}/><br></br>
+              <Form.Label for="Cover_letter">Not done</Form.Label>
+              <Form.Checkbox type="checkbox" value={false} name="cover_letter" onChange={handleChange}/><br></br>
+              <h1>Resume</h1>
+              <Form.Label for="Resume">Done</Form.Label>
+              <Form.Checkbox type="checkbox" value={true} name="resume" onChange={handleChange}/><br></br>
+              <Form.Label for="Resume">Not done</Form.Label>
+              <Form.Checkbox type="checkbox" value={false} name="resume" onChange={handleChange}/><br></br>
+              <Button type="submit" value="UPDATE">UPDATE</Button>
+            </Form.Control>
+          </Form.Field>
         </form>
-      </div>
+      </section>
+    </div>
     );
   };
 
