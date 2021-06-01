@@ -1,5 +1,8 @@
 import React from "react";
-
+//Bulma
+import {Form, Button} from "react-bulma-components";
+//icons
+import {ImSearch} from "react-icons/im";
 
 const CompanyForm = (props) => {
 
@@ -19,15 +22,21 @@ const CompanyForm = (props) => {
 
     return (
       <div>
-        <h3>Company</h3>
-        <form onSubmit={handleSubmit2}>
-              <input id="Company"
-                type="text" 
-                name="searchTerm"
-                onChange={handleChange2}
-                value={formData.searchTerm}/>
-
-              <input type="submit" value="search"/>
+        <form className="co-form" onSubmit={handleSubmit2}>
+          <Form.Field className="co-form">
+            <Form.Label className="search-form-label">Company</Form.Label>
+              <Form.Control className="co-control">
+                <Form.Input
+                  className="co-input"
+                  id="Company"
+                  type="text" 
+                  name="searchTerm"
+                  onChange={handleChange2}
+                  value={formData.searchTerm}>
+                </Form.Input>
+                <Button className="co-btn" type="submit" value="search"><ImSearch /></Button>
+              </Form.Control>
+          </Form.Field>
         </form>
       </div>
     );

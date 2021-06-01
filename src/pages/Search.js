@@ -1,8 +1,12 @@
 import React from "react";
-import {useState} from "react";
-import Form from "../components/Form";
+import {useState, useEffect} from "react";
+import SpecialtyForm from "../components/SpecialtyForm";
 import CompanyForm from "../components/CompanyForm";
 import Result from "../components/Result";
+//Bulma
+import {Card} from "react-bulma-components";
+//icons
+import {BiLinkAlt} from "react-icons/bi";
 
 function Search(props){
   //api data 
@@ -36,12 +40,19 @@ function Search(props){
   const loaded = () => {
     const jobArr = job.jobs;
     if (jobArr.length === 0) {
-      return <h1>Sorry no results this time, please try another company</h1>
+      return(
+        <div className="loading">
+          <h1>Sorry no results this time, please try another company</h1>
+        </div>
+      ) 
     } else {
     //map through API results and create Result component for each
     return(
-        <div className="result-list-container">
+      <div className="search-loaded">
+        <section className="loaded-title">
           <h1>Results</h1>
+        </section>
+        <section className="result-list-container">
             {jobArr.map((ele, index) => {
               if (index <= 14) {
                 return <Result key={index} id={index} title={ele.title} company_name={ele.company_name} 
@@ -49,21 +60,41 @@ function Search(props){
                 url={ele.url} job_type={ele.job_type} handleChange={handleChange}/>
               };
             })}
-            <p>Results from <a href="https://remotive.io/" target='_blank' rel='noreferrer'>Remotive's API</a></p>
-        </div>
+        </section>
+        <section className="remotive-blurb">
+        <p><span><BiLinkAlt /></span><a href="https://remotive.io/" target='_blank' rel='noreferrer'>Results from Remotive's API</a></p>
+        </section>
+      </div>
       );
     };
   };
 
   const loading = () => {
-    return <h1>Search for a job to begin</h1>
+    return(
+      <div className="loading">
+        <h1>Search for a job to begin</h1>
+      </div>
+    ) 
   };
+
+  useEffect(() => {
+    if (props.token) {
+    } else {
+      props.history.push('/auth/login')
+    }
+  }, [])
 
   return(
     <div className="search-container">
-      <h1>Search for jobs</h1>
-      <Form jobSearch={jobSearch} />
-      <CompanyForm jobSearch={jobSearch}/>
+      <section className="search-title-container">
+          <Card className="search-box">
+            <SpecialtyForm jobSearch={jobSearch} />
+          </Card>
+          <h1>Search for jobs</h1>
+          <Card className="search-box-2">
+            <CompanyForm jobSearch={jobSearch} />
+          </Card>
+      </section>
       {job ? loaded() : loading()}
     </div>
     );
