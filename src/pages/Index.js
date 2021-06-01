@@ -1,17 +1,21 @@
-import JobCard from "../components/JobCard"
-import { useEffect } from "react"
+import JobCard from "../components/JobCard";
+import {useEffect} from "react";
 
 function Index(props){
-    
+
   const loaded = () => {
     return props.jobs.map((job) => (
       <JobCard key={job._id} id={job._id} title={job.title} salary={job.salary} candidate_required_location={job.candidate_required_location} type={job.job_type}/>
-    ))
-  }
+    ));
+  };
  
   const loading = () => {
-    return <h1>Loading..</h1>
-  }
+    return(
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
+  };
   
   useEffect(() => {
     console.log(props.token)
@@ -23,10 +27,17 @@ function Index(props){
 
   return(
     <div className="index-container">
-      <h1>App Title</h1>
+      <section className="title-container">
+        <h1>npm Start Career</h1>
+      </section>
+      <section className="index-title-container">
+        <h2>My jobs</h2>
+      </section>
+      <section className="section">
       {props.jobs && props.jobs instanceof Array ? loaded() : loading()}
+      </section>
     </div>
-    )
-  } 
+    );
+  };
   
   export default Index;

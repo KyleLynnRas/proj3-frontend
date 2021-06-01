@@ -1,5 +1,20 @@
-$postIt: ‘Gloria Hallelujah’, cursive;
-$main: ‘Raleway’, sans-serif;
+// --------------------------
+// Variables
+// --------------------------
+
+/*--fonts--*/
+$postIt: 'Gloria Hallelujah', cursive;
+$main: 'Raleway', sans-serif;
+$console: 'IBM Plex Mono', monospace;
+
+/*--imgs--*/
+$bluePost: url("https://i.imgur.com/5VChaBJ.png");
+$greenPost: url("https://i.imgur.com/YAhCS5S.png");
+$brickSmall: url("https://i.imgur.com/WljWs1A.jpg");
+$brick500: url("https://i.imgur.com/a4LhMkW.jpg");
+$showPic: url("https://i.imgur.com/ooBxPb6.jpg");
+$largeBrick: url("https://i.imgur.com/3qlN3sA.jpg");
+
 $grayBack: rgba(128, 128, 128, 0.767);
 
 @mixin flex-column {
@@ -8,17 +23,20 @@ $grayBack: rgba(128, 128, 128, 0.767);
     align-items: center;
     flex-direction: column;
 }
+
 @mixin flex-row {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 }
+
 @mixin backgroundImage {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 // --------------------------
 // Body
 // --------------------------
@@ -26,37 +44,618 @@ $grayBack: rgba(128, 128, 128, 0.767);
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: $main;
     text-align: center;
+}
+
+// --------------------------
+// Index
+// --------------------------
+.index-container {
+    height: 100%;
+    background-image: url("https://i.imgur.com/SxWdG1a.jpg");
+    background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/SxWdG1a.jpg");
+    background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/SxWdG1a.jpg");
+    background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/SxWdG1a.jpg");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include backgroundImage;
+}
+
+/*--INDEX LOADING--*/
+.loading {
+    height: 100vh;
+
+    h1 {
+        margin-top: 70px;
+        background-color: rgba(128, 128, 128, 0.767);
+        font-size: 40px;
+        font-weight: bold;
+        color: #fff;
+        padding: 20px;
+        font-family: $postIt;
+    }
+}
+
+/*--INDEX--*/
+.title-container {
+    margin-top: 40px;
+    background-color: rgba(128, 128, 128, 0.767);
+    width: 100%;
+    padding: 45px;
+
+    h1 {
+        font-family: $postIt;
+        font-size: 35px;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+.index-title-container {
+    margin-top: 60px;
+    background-color: rgba(128, 128, 128, 0.767);
+    width: 50%;
+    padding: 20px;
+
+    h2 {
+        font-family: $postIt;
+        font-size: 26px;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+/*--job card--*/
+.index-card-title {
+    margin-top: 25px;
+    font-family: $postIt;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(60, 60, 60);
+}
+
+.section {
+    @include flex-column;
+}
+
+.job-container {
+    background-color: transparent;
+    width: 90%;
+    margin: 10px;
+    @include backgroundImage;
+    text-align: center;
+    font-size: 16px;
+    font-family: $postIt;
+}
+
+.job-container:nth-child(odd) {
+    background-image: $bluePost;
+}
+
+.job-container:nth-child(even) {
+    background-image: $greenPost;
+}
+
+.index-card-content {
+    margin-bottom: 10px;
+    color: rgb(60, 59, 59);
+}
+
+// --------------------------
+// Search 
+// --------------------------
+.search-container {
+    height: 100%;
+    background-image: $largeBrick;
+    background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.336)), $largeBrick;
+    background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.336)), $largeBrick;
+    background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.336)), $largeBrick;
+    @include flex-column;
+}
+
+.search-title-container {
+    margin-top: 40px;
+    background-color: rgba(105, 104, 104, 0.699);
+    width: 100vw;
+    padding-top: 0;
+    padding-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    h1 {
+        font-family: $postIt;
+        font-size: 35px;
+        color: #fff;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+}
+
+.search-loaded {
+    @include flex-column;
+}
+
+.loaded-title {
+    margin-top: 40px;
+    background-color: rgba(105, 104, 104, 0.699);
+    width: 50vw;
+    padding: 15px;
+    @include flex-row;
+    margin-bottom: 50px;
+
+    h1 {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold
+    }
+}
+
+/*--Forms--*/
+.search-box {
+    position: relative;
+    top: 250px;
+    background-color: transparent;
+}
+
+.search-box-2 {
+    background-color: transparent;
+}
+
+/*--specialty form--*/
+.search-form-label {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.spec-btn {
+    margin-left: 10px;
+}
+
+/*--company form--*/
+.co-form {
+    color: rgb(60, 60, 60);
+}
+
+.co-input {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.co-control, .spec-control {    
+    @include flex-row;
+}
+
+
+/*--results--*/
+.result-list-container{
+    @include flex-column;
+}
+
+.result-container {
+    background-color: transparent;
+    width: 80vw;
+    margin: 10px;
+    @include backgroundImage;
+    text-align: center;
+    font-size: 15px;
+    font-family: $postIt;
+}
+
+.result-container:nth-child(odd) {
+    background-image: $bluePost;
+}
+
+.result-container:nth-child(even) {
+    background-image: $greenPost;
+}
+
+.result-card-content {
+    margin-bottom: 20px;
+    color: rgb(60, 59, 59);
+
+    h2 {
+        margin: 6px;
+    }
+}
+
+.search-res-title {
+    margin-top: 10px;
+    margin-bottom: 13px;
+    font-family: $postIt;
+    font-size: 23px;
+    font-weight: bold;
+    color: rgb(60, 60, 60);
+}
+
+.result-card-btn-box {
+    margin-top: 15px;
+    @include flex-row;
+}
+
+.result-link {
+    margin-right: 10px;
+    font-size: 20px;
+    color: rgb(60, 60, 60);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.save-btn {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+}
+
+span {
+    font-size: 20px;
+}
+
+.fa-file-download {
+    font-size: 18px;
+}
+
+.remotive-blurb {
+    margin-top: 40px;
+    background-color: rgba(105, 104, 104, 0.699);
+    width: 70%;
+    padding: 20px;
+    @include flex-row;
+    margin-bottom: 40px;
+
+    p, a {
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold
+    }
+}
+
+// --------------------------
+// Show
+// --------------------------
+.show-container {
+    background-image: url("https://i.imgur.com/DB4IbuX.png");
+    @include backgroundImage;
+    @include flex-column;
+    height: 100%;
+}
+
+.show-title-container {
+    background-color: $grayBack;
+    width: 100%;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+   
+    .show-title-text {
+        font-family: $postIt;
+        color: #fff;
+        font-size: 30px;
+    }
+}
+
+.show-content {
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.927); 
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    padding: 20px;
+    font-family: $console;
+    color: #fff;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.show-console-one {
+    margin-top: 10px;
+}
+
+.console-link-span {
+    margin-left: 5px;
+}
+
+.console-link {
+    color: #fff;
+}
+
+.console-link:visited {
+    color: #fff;
+}
+
+.console-link-i {
+    font-size: 15px;
+    color: #fff;
+}
+
+.show-checkBoxes {
+    margin-top: 15px;
+
+    h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .show-icon-span {
+        margin-right: 7px;
+    }
+
+    .show-check-no {
+        color: rgb(206, 51, 51);
+        font-size: 15px;
+    }
+
+    .show-check-yes {
+        color: rgb(43, 140, 43);
+        font-size: 15px;
+    }
 
 }
+
+.show-notes {
+    margin-top: 15px;
+
+    p {
+        margin-top: 10px;
+    }
+}
+
+.show-buttons {
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.927); 
+    width: 60%;
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+
+    #edit, #delete {
+        background-color: transparent;
+        border: none;
+    }
+    .fa-edit, .fa-trash {
+        font-size: 19px;
+        color: #fff;
+    }
+}
+
+// --------------------------
+// Home 
+// --------------------------
+.home-container {
+    height: 100%;
+    background-image: url("https://i.imgur.com/DB4IbuX.png");
+    background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.425)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.425)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.425)), url("https://i.imgur.com/DB4IbuX.png");
+    @include flex-column;
+    @include backgroundImage;
+}
+
+.home-title-container {
+    margin-top: 60px;
+    background-color: rgba(128, 128, 128, 0.767);
+    width: 100vw;
+    padding: 50px;
+    margin-bottom: 80px;
+
+    h1 {
+        font-family: $postIt;
+        font-size: 35px;
+        color: #fff;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #fff;
+        margin-top: 15px;
+        font-style: italic;
+    }
+}
+
+.auth-btns {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-start-btn {
+    font-family: $postIt;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 30px;
+    color: #fff;
+    background-color: rgba(128, 128, 128, 0.767);
+}
+
+.features-container {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.feat-one, .feat-two, .feat-three {
+    height: 275px;
+    width: 80%;
+    background-color: transparent;
+    padding: 20px;
+    background-image: url("https://i.imgur.com/BT1iaWs.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .feat-icon {
+        font-size: 25px;
+    }
+
+    h1 {
+        margin-top: 8px;
+        font-weight: bold;
+    }
+
+    .home-card-content {
+        position: relative;
+        bottom: 20px;
+    }
+
+    .home-link {
+        color: rgb(65, 65, 65);
+    }
+}
+
+// --------------------------
+// Nav 
+// --------------------------
+.nav {
+    padding: 10px;
+
+    a {
+        background-color: rgba(52, 52, 52, 0.137);
+        color: #fff;
+    }
+}
+
+.nav-icon {
+    margin-right: 10px;
+    background-color: rgba(52, 52, 52, 0.137);
+    color: #fff;
+}
+
+.is-active {
+    background-color: rgba(52, 52, 52, 0.137);
+    color: #fff;
+
+    .navbar-item:hover {
+        background-color: rgba(52, 52, 52, 0.137);
+        color: rgba(98, 188, 217);
+    }
+
+    a:hover  {
+        color: rgba(98, 188, 217);
+    }
+}
+
+.burger {
+    background-color: rgba(52, 52, 52, 0.137);
+    color: #fff;
+}
+
+
+// --------------------------
+// Login/Signup
+// --------------------------
+.login-container {
+    height: 100vh;
+    background-image: url("https://i.imgur.com/DB4IbuX.png");
+    background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include backgroundImage;
+}
+
+.signup-container {
+    height: 100vh;
+    background-image: url("https://i.imgur.com/DB4IbuX.png");
+    background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include backgroundImage;
+}
+
+.login-title-container {
+    margin-top: 60px;
+    justify-self: flex-start;
+    width: 100%;
+    background-color: $grayBack;
+    padding: 35px;
+
+    h1 {
+        font-family: $postIt;
+        color: #fff;
+        font-size: 30px;
+    }
+}
+
+.login-content, .signup-content {
+    @include flex-column;
+    background-color: $grayBack;
+    color: #fff;
+    margin-top: 50px;
+    padding: 35px;
+    width: 90%;
+}
+
+.auth-input {
+    margin-top: 3px;
+    margin-bottom: 15px;
+}
+
+.auth-btn {
+    padding: 17px;
+    margin-top: 15px;
+    font-family: $main;
+}
+
+.signup-box {
+    background-color: $grayBack;
+    color: #fff;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-family: $postIt;
+
+    a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+}
+
 // --------------------------
 // Footer
 // --------------------------
-    .main-footer {
+.main-footer {
     color: white;
-    background-color: rgb(66, 71, 74);
-    padding-top: 2em;
-    position: fixed;
+    background-color: rgb(47, 47, 47);
+    padding: 2em;
     bottom: 0;
     width: 100%;
+    border: 3px solid rgb(47, 47, 47);
 }
 
 // --------------------------
-// Edit.js
+// Edit
 // --------------------------
-    .edit-container {
-    height: 100vh;
+.edit-container {
+    height: 100%;
     background-image: url("https://i.imgur.com/a78WcO1.jpg");
     background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
     background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
     background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/DB4IbuX.png");
-    @include flex-column();
+    @include flex-column;
     @include backgroundImage;
-    }
+}
 
-    .edit-title-container {
+.edit-title-container {
     margin-top: 60px;
     justify-self: flex-start;
     width: 100%;
@@ -67,17 +666,978 @@ body {
         color: #fff;
         font-size: 30px;
     }
-    }
+}
 
-    .form-container {
+.form-container {
     @include flex-column;
     background-color: $grayBack;
     color: #fff;
     margin-top: 50px;
     padding: 35px;
-    width: 60%;
+    width: 80%;
+    margin-bottom: 60px;
+}
+
+.form-label-container {
+    margin-bottom: 60px;
+}
+
+.input-title {
+    margin-top: 10px;
+    font-size: 22px;
+    text-decoration: underline;
+    color: #fff;
+}
+
+.edit-btn {
+    margin-top: 20px;
+}
+
+.edit-input {
+    margin-top: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+
+// --------------------------
+// Media Query
+// --------------------------
+@media screen and (min-width: 500px) {
+.job-container, .result-container {
+    width: 60vw;
+}
+
+.show-container {
+    height: 900px;
+}
+
+}
+
+@media screen and (min-width: 768px) {
+.index-container {
+    height: 100%;
+    background-image: url("https://i.imgur.com/SxWdG1a.jpg");
+    background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/SxWdG1a.jpg");
+    background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/SxWdG1a.jpg");
+    background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/SxWdG1a.jpg");
+}
+
+.title-container {
+    padding: 45px;
+
+    h1 {
+        font-size: 45px;
+        padding: 20px;
+    }
+}
+
+.index-title-container {
+    margin-top: 70px;
+    width: 50%;
+    padding: 20px;
+    margin-bottom: 40px;
+
+    h2 {
+        font-size: 30px;
+    }
+}
+
+.section, .result-list-container {
+    align-self: flex-start;
+    width: 100vw;
+    @include flex-row;
+    flex-wrap: wrap;
+}
+
+.job-container, .result-container {
+    width: 40vw;
+    margin: 20px;
+    padding: 25px;
+}
+
+// /*--SEARCH--*/
+.search-title-container {
+    @include flex-row;
+    padding: 0;
+    background-color: $grayBack;
+    h1 {
+        font-size: 45px;
+        padding: 10px;
+    }
+}
+
+.loaded-title {
+    background-color: $grayBack;
+}
+
+.search-box, .search-box-2 {
+    position: static;
+    width: 50%;
+    height: 350px;
+    background-color: transparent;
+    padding: 20px;
+    background-image: url("https://i.imgur.com/BT1iaWs.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include flex-column;
+}
+
+.search-box-2 {
+    background-image: url("https://i.imgur.com/ZJQzi2H.png");
+}
+
+/*--specialty form--*/
+.search-form-label {
+    color: #000;
+    font-size: 18px;
+}
+
+.spec-form-container {
+    position: relative;
+    bottom: 15px;
+}
+
+.spec-btn {
+    margin-left: 10px;
+}
+
+/*--company form--*/
+.co-form {
+    color: #000;
+    position: relative;
+    bottom: 10px;
+}
+
+.co-input {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.co-control, .spec-control {    
+    @include flex-row;
+}
+
+.remotive-blurb {
+    background-color: $grayBack;
+}
+
+/*---SHOW--*/
+.show-container {
+    height: 1150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.show-title-container {
+    padding: 55px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+   
+    .show-title-text {
+        font-size: 40px;
+    }
+}
+
+.show-content {
+    width: 70%;
+    font-size: 20px;
+    padding: 25px;
+}
+
+.show-console-one {
+    margin-top: 15px;
+}
+
+.console-link-span {
+    margin-left: 10px;
+}
+
+.console-link-i {
+    font-size: 20px;
+}
+
+.show-checkBoxes {
+    margin-top: 20px;
+
+    h2 {
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
-    .form-label-container {
-        margin-bottom: 10px;
+    .show-icon-span {
+        margin-right: 10px;
     }
+
+    .show-check-no {
+        font-size: 20px;
+    }
+
+    .show-check-yes {
+        font-size: 20px;
+    }
+
+}
+
+.show-notes {
+    margin-top: 22px;
+
+    p {
+        margin-top: 15px;
+    }
+}
+
+.show-buttons {
+    margin-bottom: 50px;
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    .fa-edit, .fa-trash {
+        font-size: 20px;
+    }
+}
+
+/*--HOME--*/
+.home-container {
+    height: 100vh;
+}
+
+.home-title-container {
+    margin-top: 60px;
+    width: 100vw;
+    padding: 90px;
+
+    h1 {
+        font-size: 45px;
+    }
+
+    p {
+        margin-top: 25px;
+        font-size: 18px;
+    }
+}
+
+.auth-btns {
+    width: 50%;
+}
+
+
+.features-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 98%;
+}
+
+.feat-one, .feat-two, .feat-three {
+    height: 250px;
+    padding: 20px;
+
+    .feat-icon {
+        font-size: 25px;
+    }
+
+    .home-card-content {
+        position: relative;
+        bottom: 20px;
+    }
+}
+
+.home-start-btn {
+    font-family: $postIt;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 30px;
+    color: #fff;
+    background-color: rgba(128, 128, 128, 0.938);
+}
+
+/*--LOGIN--*/
+.login-container {
+    height: 100vh;
+}
+
+.login-title-container {
+    margin-top: 60px;
+    background-color: $grayBack;
+    padding: 45px;
+
+    h1 {
+        font-size: 40px;
+    }
+}
+
+.login-content {
+    margin-top: 100px;
+    padding: 35px;
+    width: 70%;
+}
+
+.auth-input {
+    margin-top: 3px;
+    margin-bottom: 15px;
+}
+
+.auth-btn {
+    padding: 17px;
+    margin-top: 15px;
+    font-family: $main;
+}
+
+.signup-box {
+    background-color: rgba(99, 99, 99, 0.5);
+    color: #fff;
+    padding: 25px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: $postIt;
+
+}
+
+.auth-label {
+    font-size: 20px;
+}
+
+/*--SIGN UP--*/
+.signup-content {
+    margin-top: 120px;
+    padding: 40px;
+    width: 70%;
+}
+
+/*--EDIT--*/
+.edit-title-container {
+    margin-top: 70px;
+    padding: 45px;
+    h1 {
+        font-size: 35px;
+    }
+}
+
+.form-container {
+    margin-top: 80px;
+    padding: 35px;
+    width: 60%;
+    margin-bottom: 80px;
+}
+
+.input-title {
+    font-size: 25px;
+    text-decoration: underline;
+    color: #fff;
+}
+
+.edit-btn {
+    margin-top: 20px;
+}
+
+.input-box {
+   margin-top: 15px;
+   @include flex-column;
+   margin-bottom: 20px;
+}
+
+.edit-input {
+    font-size: 20px;
+}
+
+.checkbox {
+    transform: scale(1.5);
+}
+
+}
+
+@media screen and (min-width: 950px) {
+.title-container {
+    margin-top: 50px;
+    padding: 45px;
+    
+    h1 {
+        font-size: 50px;
+        }
+}
+
+.index-title-container {
+    margin-top: 90px;
+    width: 50%;
+    padding: 30px;
+
+    h2 {
+        font-size: 35px;
+    }
+}
+
+.index-card-title, .search-res-title {
+    font-size: 26px;
+}
+
+.job-container {
+    padding: 25px;
+    width: 35vw;
+    font-size: 21px;
+}
+
+/*--Search--*/
+.search-title-container {
+    margin-top: 50px;
+    padding: 35px;
+    
+    h1 {
+        font-size: 55px;
+        }
+}
+
+.loaded-title {
+    margin-top: 50px;
+
+    h1 {
+        font-size: 40px;
+    }
+}
+
+.search-box, .search-box-2 {
+    width: 49%;
+    padding: 80px;
+}
+
+.search-form-label {
+    color: #000;
+    font-size: 25px;
+}
+
+.spec-btn {
+    margin-left: 10px;
+}
+
+.co-input {
+    width: 80%;
+    margin-right: 10px;
+}
+
+.co-control, .spec-control {    
+    @include flex-row;
+}
+
+/*--results--*/
+.result-container {
+    font-size: 22px;
+}
+
+.result-card-content {
+
+    h2 {
+        margin: 10px;
+    }
+}
+
+.search-res-title {
+    font-size: 26px;
+}
+
+.result-card-btn-box {
+    margin-top: 18px;
+}
+
+.result-link {
+    font-size: 25px;
+}
+
+span {
+    font-size: 25px;
+}
+
+.fa-file-download  {
+    font-size: 22px;
+}
+
+.remotive-blurb {
+    margin-top: 60px;
+    width: 60vw;
+    padding: 40px;
+    margin-bottom: 60px;
+
+    p, a {
+        font-size: 29px;
+    }
+}
+
+/*---SHOW--*/
+.show-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.show-title-container {
+    padding: 65px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+   
+    .show-title-text {
+        font-size: 50px;
+    }
+}
+
+.show-content {
+    width: 75%;
+    font-size: 25px;
+}
+
+.show-console-one {
+    margin-top: 20px;
+}
+
+.console-link-span {
+    margin-left: 10px;
+}
+
+.console-link-i {
+    font-size: 25px;
+}
+
+.show-checkBoxes {
+    margin-top: 25px;
+    margin-bottom: 30px;
+
+    h2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .show-icon-span {
+        margin-right: 15px;
+    }
+
+    .show-check-no {
+        font-size: 25px;
+    }
+
+    .show-check-yes {
+        font-size: 25px;
+    }
+
+}
+
+.show-notes {
+    margin-top: 30px;
+
+    p {
+        margin-top: 20px;
+    }
+}
+
+.show-buttons {
+    width: 50%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    padding: 40px;
+
+    .fa-edit, .fa-trash {
+        font-size: 25px;
+    }
+}
+
+/*--HOME--*/
+.home-container {
+    height: 100vh;
+}
+
+.home-title-container {
+    width: 100vw;
+    padding: 110px;
+
+    h1 {
+        font-size: 55px;
+    }
+
+    p {
+        margin-top: 30px;
+        font-size: 22px;
+    }
+}
+
+.features-container {
+    margin-top: 90px;
+    width: 95%;
+}
+
+.feat-one, .feat-two, .feat-three {
+    height: 300px;
+    padding: 20px;
+
+    .feat-icon {
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 17px;
+    }
+
+    .home-card-content {
+        position: relative;
+        bottom: 20px;
+    }
+}
+
+.home-start-btn {
+    font-size: 25px;
+    padding: 40px;
+}
+
+/*--LOGIN--*/
+.login-container {
+    height: 100vh;
+}
+
+.login-title-container {
+    margin-top: 120px;
+    background-color: $grayBack;
+    padding: 45px;
+
+    h1 {
+        font-size: 50px;
+    }
+}
+
+.login-content {
+    margin-top: 150px;
+    padding: 40px;
+    width: 70%;
+}
+
+.auth-input {
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.auth-btn {
+    padding: 22px;
+    margin-top: 15px;
+    font-family: $main;
+}
+
+.signup-box {
+    background-color: rgba(99, 99, 99, 0.5);
+    color: #fff;
+    padding: 35px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: $postIt;
+
+}
+
+.auth-label {
+    font-size: 25px;
+}
+
+/*--EDIT--*/
+.edit-title-container {
+    margin-top: 100px;
+    padding: 55px;
+    h1 {
+        font-size: 50px;
+    }
+}
+
+.form-container {
+    margin-top: 100px;
+    padding: 35px;
+    width: 60%;
+    margin-bottom: 80px;
+}
+
+.input-title {
+    font-size: 35px;
+}
+
+.edit-btn {
+    margin-top: 20px;
+    padding: 30px;
+}
+
+
+.edit-input {
+    margin-top: 10px;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.edit-notes {
+    width: 50%;
+}
+
+.checkbox {
+    transform: scale(1.75);
+}
+
+}
+
+@media screen and (min-width: 1200px) {
+.index-container {
+    height: 100%;
+    background-image: $largeBrick;
+    background-image: linear-gradient(#a19f9f5d, rgba(191, 191, 191, 0.582)), $largeBrick;
+    background-image: -webkit-linear-gradient( #a19f9f5d, rgba(191, 191, 191, 0.582)), $largeBrick;
+    background-image: -moz-linear-gradient( #a19f9f5d, rgba(191, 191, 191, 0.582)), $largeBrick;
+    @include flex-column;
+    @include backgroundImage;
+}
+
+.title-container {
+    
+    h1 {
+        font-size: 60px;
+    }
+}
+
+.index-card-title, .search-res-title {
+    font-size: 28px;
+}
+
+.section {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.index-loaded {
+    align-self: center;
+}
+
+.job-container, .result-container {
+    width: 35%;
+    font-size: 25px;
+    padding: 30px;
+}
+
+.index-card-content, .result-card-content {
+    margin-bottom: 20px;
+}
+
+/*--Search--*/
+.search-container {
+    background-image: url("https://i.imgur.com/SxWdG1a.jpg");
+    background-image: linear-gradient(#3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/SxWdG1a.jpg");
+    background-image: -webkit-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/SxWdG1a.jpg");
+    background-image: -moz-linear-gradient( #3232320a, rgba(191, 191, 191, 0.747)), url("https://i.imgur.com/SxWdG1a.jpg");
+    @include backgroundImage;
+}
+
+.search-title-container {
+    margin-top: 50px;
+    padding: 35px;
+    
+    h1 {
+        font-size: 60px;
+        }
+}
+
+.search-loaded {
+    @include flex-row;
+    flex-wrap: wrap;
+}
+
+.search-box, .search-box-2 {
+    width: 49%;
+    padding: 85px;
+}
+
+.search-form-label {
+    margin-bottom: 20px;
+    color: #000;
+    font-size: 28px;
+}
+
+.spec-btn {
+    margin-left: 10px;
+}
+
+/*--results--*/
+.result-list-container {
+    width: 90%;
+}
+
+.result-container {
+    font-size: 22px;
+    margin: 20px;
+}
+
+.remotive-blurb {
+    margin-top: 60px;
+    width: 60%;
+    padding: 40px;
+    margin-bottom: 60px;
+
+    p, a {
+        font-size: 29px;
+    }
+}
+
+/*---SHOW--*/
+.show-container {
+    height: 100%;
+}
+
+.show-title-container {
+    margin-bottom: 120px;
+}
+
+.show-content {
+    width: 70%;
+}
+
+/*--HOME--*/
+.home-container {
+    height: 100%;
+}
+
+.home-title-container {
+    width: 100vw;
+    padding: 90px;
+    margin-top: 60px;
+
+    h1 {
+        font-size: 55px;
+    }
+
+    p {
+        margin-top: 35px;
+    }
+}
+
+.auth-btns {
+    width: 40%;
+}
+
+.features-container {
+    margin-top: 90px;
+    width: 95%;
+    margin-bottom: 140px;
+}
+
+.feat-one, .feat-two, .feat-three {
+    height: 275px;
+    width: 95%;
+
+    .feat-icon {
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 15px;
+    }
+
+    .home-card-content {
+        position: relative;
+        bottom: 20px;
+    }
+}
+
+/*--LOGIN--*/
+.login-container {
+    height: 100%;
+}
+
+.login-content {
+    margin-top: 100px;
+    padding: 40px;
+    width: 50%;
+}
+
+.auth-input {
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.auth-btn {
+    padding: 22px;
+    margin-top: 15px;
+    font-family: $main;
+}
+
+.signup-box {
+    background-color: rgba(99, 99, 99, 0.5);
+    color: #fff;
+    padding: 35px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: $postIt;
+
+}
+
+.auth-label {
+    font-size: 25px;
+}
+
+/*--SIGN UP--*/
+.signup-content {
+    margin-top: 120px;
+    padding: 40px;
+    width: 50%;
+}
+
+/*--EDIT--*/
+.edit-title-container {
+    margin-top: 100px;
+    padding: 60px;
+}
+
+.form-container {
+    margin-top: 130px;
+    width: 50%;
+    margin-bottom: 80px;
+}
+
+.input-title {
+    font-size: 35px;
+}
+
+.edit-btn {
+    margin-top: 40px;
+    padding: 30px;
+}
+
+.edit-input {
+    margin-top: 10px;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.checkbox {
+    transform: scale(1.75);
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

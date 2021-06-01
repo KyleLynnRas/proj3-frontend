@@ -7,23 +7,18 @@ import Search from "../pages/Search";
 import Edit from "../pages/Edit";
 import Login from "./Login";
 import Signup from "./Signup";
-
-
+import Home from "../pages/Home";
 
 function Main(props){
 
-  
-  // const URL = "https://proj3-backend.herokuapp.com/jobs/";
-  const URL = "http://localhost:8080/jobs/"
+  const URL = "https://proj3-backend.herokuapp.com/jobs/";
+  // const URL = "http://localhost:8080/jobs/";
+
   
   const [token, setToken] = useState(null) 
   
   const getToken = (t) => {
    setToken(t)
-  }
-
-  const logOut = () => {
-    setToken('')
   }
 
   const [jobs, setJobs] = useState(null);
@@ -86,6 +81,9 @@ function Main(props){
   return (
     <main>
       <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route exact path="/jobs" render={(rp) => <Index jobs={jobs} token={token} {...rp}/>}/>
         <Route 
           path="/jobs/search"

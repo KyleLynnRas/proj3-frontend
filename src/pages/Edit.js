@@ -30,22 +30,34 @@ function Edit(props) {
         <form onSubmit={handleSubmit}>
           <Form.Field>
             <Form.Control>
-          <Form.Label className="form-label-container">Notes</Form.Label><br></br>
-          <Form.Textarea value={editForm.notes} name="notes" placeholder="Notes" onChange={handleChange}/><br></br>
-          <Form.Label for="Apply">Applied</Form.Label>
-          <Form.Checkbox type="checkbox" value={editForm.applied ? false : true} name="applied" onChange={handleChange}/><br></br>
-          <Form.Label for="Interview">Interviewed</Form.Label>
-          <Form.Checkbox type="checkbox" value={editForm.interviewed ? false : true} name="interviewed" onChange={handleChange}/><br></br>
-          <Form.Label for="Cover_letter">Cover Letter</Form.Label>
-          <Form.Checkbox type="checkbox" value={editForm.cover_letter ? false : true} name="cover_letter" onChange={handleChange}/><br></br>
-          <Form.Label for="Resume">Resume</Form.Label>
-          <Form.Checkbox type="checkbox" value={editForm.resume ? false : true} name="resume" onChange={handleChange}/><br></br>
-          <Button type="submit" value="UPDATE">UPDATE</Button>
-          </Form.Control>
+              <h1 className="input-title">Notes</h1><br></br>
+              <Form.Textarea value={editForm.notes} className="edit-notes" name="notes" placeholder="Notes" onChange={handleChange}/><br></br>
+              <h1 className="input-title">Applied</h1>
+                <Form.Label className="edit-input" for="Apply">Done</Form.Label>
+                <Form.Checkbox className="checkbox" type="checkbox" value={true} name="applied" onChange={handleChange}/><br></br>
+                <Form.Label for="Apply" className="edit-input" >Not done</Form.Label>
+                <Form.Checkbox className="checkbox" type="checkbox" value={false} name="applied" onChange={handleChange}/><br></br>
+              <h1 className="input-title">Interviewed</h1>
+                <Form.Label for="Interview" className="edit-input" >Done</Form.Label>
+                <Form.Checkbox className="checkbox" type="checkbox" value={true} name="interviewed" onChange={handleChange}/><br></br>
+                <Form.Label for="Interview" className="edit-input" >Not done</Form.Label>
+                <Form.Checkbox className="checkbox" type="checkbox" value={false} name="interviewed" onChange={handleChange}/><br></br>
+              <h1 className="input-title">Cover Letter</h1>
+                <Form.Label for="Cover_letter" className="edit-input" >Done</Form.Label>
+                <Form.Checkbox className="checkbox" type="checkbox" value={true} name="cover_letter" onChange={handleChange}/><br></br>
+                <Form.Label for="Cover_letter" className="edit-input" >Not done</Form.Label>
+                <Form.Checkbox className="checkbox" type="checkbox" value={false} name="cover_letter" onChange={handleChange}/><br></br>
+              <h1 className="input-title">Resume</h1>
+                <Form.Label for="Resume" className="edit-input" >Done</Form.Label>
+                <Form.Checkbox className="checkbox" type="checkbox" value={true} name="resume" onChange={handleChange}/><br></br>
+                <Form.Label for="Resume" className="edit-input" >Not done</Form.Label>
+                <Form.Checkbox className="checkbox" type="checkbox" value={false} name="resume" onChange={handleChange}/><br></br>
+              <Button type="submit" className="edit-btn" value="UPDATE">UPDATE</Button>
+            </Form.Control>
           </Form.Field>
         </form>
-        </section>
-      </div>
+      </section>
+    </div>
     );
   };
 
